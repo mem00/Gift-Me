@@ -33,6 +33,12 @@ wishlistRouter.put('/edit/:wishlist_id', async(req,res)=>{
     })
     res.json({wishlist})
 })
+
+wishlistRouter.delete('/delete/:wishlist_id', async(req,res)=>{
+   const wishlist = await Wishlist.findByPk(req.params.wishlist_id);
+   wishlist.destroy();
+   res.json({msg: `wishlist with id ${req.params.wishlist_id} destroyed!`});
+})
  
 module.exports = {
     wishlistRouter
