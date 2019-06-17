@@ -31,6 +31,7 @@ https://res.cloudinary.com/db77zoxry/image/upload/v1560777894/20190616_155756_2.
 
 My MVP would be a working page with as many features as possible and styling.
 Post MVP would be adding a more features and styling as well as adding authentification and and option to search by #event.
+Also add a feature in item table for the buyer to leave a msg to the person they have bought a present for.
 
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: |
