@@ -62,7 +62,7 @@ const db = new Sequelize({
   
   Wishlist.hasMany(Item);
   Item.belongsTo(Wishlist);
-  Event.belongsto(Wishlist);
+  Event.belongsTo(Wishlist);
   Wishlist.hasMany(Event);
   Person.hasMany(Wishlist);
   Wishlist.belongsTo(Person)
