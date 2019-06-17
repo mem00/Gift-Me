@@ -22,7 +22,16 @@ wishlistRouter.post('/create/:person_id', async(req,res) => {
     const person = await Person.findByPk(req.params.person_id); 
     const wishlist = await Wishlist.create(req.body);
     await wishlist.setPerson(person);
-    res.json(wishlist)
+    res.json({wishlist})
+})
+
+wishlistRouter.put('/edit/:wishlist_id', async(req,res)=>{
+    const wishlist = await Wishlist.update(req.body,{
+        where: {
+            id: req.params.wishlist_id
+        }
+    })
+    res.json({wishlist})
 })
  
 module.exports = {
