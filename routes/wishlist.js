@@ -9,8 +9,13 @@ wishlistRouter.get('/:email', async (req,res)=>{
         where: {
             email: req.params.email
         },
-        include: [Wishlist]
+        include: [{ 
+            model: Wishlist,
+            include: [Item] 
+           
+        }]
     })
+
     res.json({person})
 })
  
