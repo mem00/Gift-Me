@@ -1,3 +1,5 @@
+const Sequelize = require("sequelize");
+
 const db = new Sequelize({
     database: 'wishlist_db',
     dialect: 'postgres',
