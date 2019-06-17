@@ -12,9 +12,8 @@ wishlistRouter.get('/:email', async (req,res)=>{
         include: [{ 
             model: Wishlist,
             include: [Item]       
-        }]
+        }]  
     })
-
     res.json({person})
 })
 
