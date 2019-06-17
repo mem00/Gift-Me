@@ -4,6 +4,7 @@ const logger = require('morgan');
 const cors = require('cors')
 
 const {wishlistRouter} = require('./routes/wishlist')
+const {itemRouter} = require('./routes/item')
 
 
 const PORT = process.env.PORT || 4567;
@@ -26,5 +27,7 @@ app.get('/', async(req,res)=>{
 })
 
 app.use('/wishlist', wishlistRouter)
+app.use('/item', itemRouter)
+
 
 app.listen(PORT, ()=> console.log(`App listening on port ${PORT}`))
