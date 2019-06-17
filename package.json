@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "init": "dropdb --if-exists wishlist_db && createdb  wishlist_db",
+    "init": "dropdb --if-exists wishlist_db && createdb wishlist_db",
     "reset": "node resetDB.js",
     "dev": "nodemon server.js"
   },
