@@ -15,8 +15,10 @@ eventRouter.get('/:name', async (req,res)=>{
     res.json({event})
 })
 
-eventRouter.post('/create', async(req, res)=>{
+eventRouter.post('/create/:id', async(req, res)=>{
+    const wishlist = await Wishlist.findByPk(req.params.id)
     const event = await Event.create(req.body);
+    await event.setWishlist(wishlist)
     res.json({
         event
     })
