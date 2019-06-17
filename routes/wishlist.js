@@ -4,10 +4,16 @@ const wishlistRouter = express.Router();
 
 const {Wishlist, Person, Event, Item} = require('../models')
 
-// iceCreamRouter.get('/:email', async (req,res)=>{
-
-// })
-
+wishlistRouter.get('/:email', async (req,res)=>{
+    const person = await Person.findOne({
+        where: {
+            email: req.params.email
+        },
+        include: [Wishlist]
+    })
+    res.json({person})
+})
+ 
 module.exports = {
     wishlistRouter
 }
