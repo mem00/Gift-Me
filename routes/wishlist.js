@@ -11,12 +11,18 @@ wishlistRouter.get('/:email', async (req,res)=>{
         },
         include: [{ 
             model: Wishlist,
-            include: [Item] 
-           
+            include: [Item]       
         }]
     })
 
     res.json({person})
+})
+
+wishlistRouter.post('/create/:person_id', async(req,res) => {
+    const person = await Person.findByPk(req.params.person_id); 
+    const wishlist = await Wishlist.create(req.body);
+    await wishlist.setPerson(person);
+    res.json(wishlist)
 })
  
 module.exports = {
