@@ -33,7 +33,17 @@ eventRouter.put('/edit/:id', async(req, res)=>{
     })
 })
 
-
+eventRouter.delete('/edit/:id', async (req, res) => {
+    let deleteEvent = await Event.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.json({
+      message: "deleted",
+      data: req.params
+  })
+  })
  
 module.exports = {
     eventRouter
