@@ -17,12 +17,15 @@ class SearchForm extends Component {
   //when this component finishes its first render
 async getData(event){
     event.preventDefault()
-console.log("mistake")
+//console.log("mistake")
 //make an axios request to the server and save the results as a variable
 const response = await axios.get(`http://localhost:4567/wishlist/${this.state.input}`)
 console.log(response)
 this.setState({
-    person:response.data.person//saving the response 
+    name:response.data.person.name,//saving the response 
+    email:response.data.person.email,
+    wishlist:response.data.person.wishlists[0].title
+    
 
 })
 
@@ -46,6 +49,9 @@ this.setState({//storing input to reuse it
      {/* https://stackoverflow.com/questions/52064303/reactjs-pass-props-with-redirect-component */}
      <input name="email" type="text" placeholder="Enter email" onChange={this.updateInput}></input>
      <button onClick={this.getData}>Submit</button>
+    <div>{this.state.name}</div>
+    <div>{this.state.email}</div>
+    <div>{this.state.wishlist}</div>
   </div>
     
     </div>
