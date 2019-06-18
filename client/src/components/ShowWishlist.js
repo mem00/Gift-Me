@@ -10,8 +10,7 @@ class ShowWishlist extends Component {
 		this.state = {
       personToShow:{},
       redirect:false
-      
-      
+   
     };
     //this.handleDelete=this.handleDelete.bind(this)
   }
