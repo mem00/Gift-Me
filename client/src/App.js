@@ -1,14 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Switch, Route } from "react-router-dom";
 import './App.css';
-import SearchForm from './components/SearchForm';
+import CreateWishlist from './components/CreateWishlist';
+import Search from './components/SearchForm';
+import ShowWishlist from './components/ShowWishlist';
 
 function App() {
-  return (
-    <div className="App">
-    <SearchForm/>
-    </div>
-  );
+ return (
+   <div>
+      <Switch>
+         <Route exact path="/" component={CreateWishlist} />
+         <Route exact path="/wishlist" component={ShowWishlist} />
+       </Switch>
+
+   </div>
+ );
+
 }
 
 export default App;

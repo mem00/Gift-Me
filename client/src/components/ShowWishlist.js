@@ -52,15 +52,13 @@ class ShowWishlist extends Component {
 //  }
 
 
-
-
 	render() {
     const personToShow =this.props.location.person;
     
     
 		return (
 			<div>
-
+        <div>Hello</div>
         {this.state.redirect ?<Redirect to="/"/>:null}
       {/* we redirect after deleting to the home page */}
 				<div>name: {personToShow.name}</div>
@@ -80,4 +78,3 @@ class ShowWishlist extends Component {
 }
 
 export default ShowWishlist;
-

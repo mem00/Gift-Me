@@ -6,7 +6,7 @@ Project Description
 Wish List with React and Express:
 
 
-This is an app that is a collection of wish list for a certion person for a set of events.
+This is an app that is a collection of wish list for a certain person for a set of events.
 The app will provide a two options for users- to search a person's list of desired items for any event or to create their own list. Starting with a main page which has the two options- button to search a list and a button to creat a list. The create wish list button will take you to a page where you will have to fill out a form with first name, last name, email. The search button will provide a search field for email. Then once a list is generated you ll be able to click on the name you r looking for. That will redirect you to a page with the person 's wish list. You ll see a list of items and a suggested link to that item.   You do your own search and when item is picked and bought you can mark it as completed on the list.
 
 
