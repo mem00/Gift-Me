@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Redirect, Link} from 'react-router-dom';
-import SearchForm from '../SearchForm'
+import SearchForm from './SearchForm'
 
 class ShowWishlist extends Component {
 	constructor() {
