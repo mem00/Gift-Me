@@ -31,29 +31,6 @@ wishlistRouter.get('/email/:email', async (req,res)=>{
 })
 
 
-//do not use it
-wishlistRouter.get('/id/:wishlist_id', async(req, res) =>{
-    const wishlistItem = await Wishlist.findOne({
-        where: {
-            id : req.params.wishlist_id
-        },
-       include: [Item] 
-    })
-    const wishlistEvent = await Wishlist.findOne({
-        where: {
-            id: req.params.wishlist_id
-        },
-        include: [{ 
-            model: Wishlist,
-            include: [Event]       
-        }]  
-    })
-    res.json({
-        wishlistItem,
-        wishlistEvent
-    })
-})
-
 wishlistRouter.post('/create/:person_id', async(req,res) => {
     const person = await Person.findByPk(req.params.person_id); 
     const wishlist = await Wishlist.create(req.body);

@@ -9,6 +9,18 @@ eventRouter.get('/:event_id', async (req,res)=>{
     res.json({event})
 })
 
+eventRouter.get('/wishlist/:wishlist_id', async(req,res)=>{
+    const events = await Event.findAll({
+        where: {
+            wishlistId : req.params.wishlist_id
+        }
+    })
+    res.json({
+        events
+    })
+
+})
+
 eventRouter.post('/create/:wishlist_id', async(req, res)=>{
     const wishlist = await Wishlist.findByPk(req.params.wishlist_id)
     const event = await Event.create(req.body);
