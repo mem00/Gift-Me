@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {Redirect} from "react-router-dom"
 
-class AddEvent extends Component {
+class AddItem extends Component {
     constructor(){
         super();
             this.state = {
                 name: "",
-                date: "",
+                price: "",
+                link: "",
                 redirect: false
             }
             this.handleChange=this.handleChange.bind(this)
@@ -26,8 +27,8 @@ class AddEvent extends Component {
 
                 await axios.post("http://localhost:4567/create/:wishlist_id", {
                     name: this.state.name,
-                    date:this.state.date,
-                  
+                    price:this.state.price,
+                    link:this.state.link
                 })
                 this.setState({
                     redirect:true
@@ -44,14 +45,20 @@ class AddEvent extends Component {
                         <input
                         name="name"
                         type="text"
-                        placeholder="NAME OF EVENT"
+                        placeholder="NAME"
                         value={this.state.name}
                         />
                          <input
-                        name="date"
-                        type="date"
-                        placeholder="DATE"
-                        value={this.state.date}
+                        name="price"
+                        type="number"
+                        placeholder="PRICE"
+                        value={this.state.price}
+                        />
+                         <input
+                        name="link"
+                        type="text"
+                        placeholder="LINK"
+                        value={this.state.link}
                         />
                         <input type="submit"
                         />
@@ -60,5 +67,4 @@ class AddEvent extends Component {
             }
     }
 
-    export default AddEvent
-//
+    export default AddItem
