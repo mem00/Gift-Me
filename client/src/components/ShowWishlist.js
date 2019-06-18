@@ -2,75 +2,67 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Redirect, Link} from 'react-router-dom';
-import SearchForm from './SearchForm'
+
 
 class ShowWishlist extends Component {
 	constructor() {
 		super();
 		this.state = {
-      personToShow:{},
-      redirect:false
-   
+      items: [],
+      events: [],
+      wishlistTitle:"",
+      personName: ""
     };
-    //this.handleDelete=this.handleDelete.bind(this)
   }
-  
-  //this.props.location.person
-
 
 	async componentDidMount() {
-		const response = await axios.get(`http://localhost:3000/${this.props.location.person.email}`);
-		const person = response.data.person;
-		this.setState({
-			personToShow: person
-		});
-		
+    try{
+      const itemResponse = await axios.get(`/item/wishlist/${this.props.match.params.id}`)
+      const eventResponse = await axios.get(`/event/wishlist/${this.props.match.params.id}`)
+      const wishlistResponse = await axios.get(`/wishlist/id/${this.props.match.params.id}`)
+      const items = itemResponse.data.items
+      const events = eventResponse.data.events
+      const wishlistTitle = wishlistResponse.data.wishlist.title
+      const personId = wishlistResponse.data.wishlist.personId
+      const personResponse = await axios.get(`/person/${personId}`)
+      const personName = personResponse.data.person.name
+      this.setState({
+        items, 
+        events,
+        wishlistTitle,
+        personName
+      })
+    }
+    catch(err){
+      console.log(err.message)
+    }
+
+  	
   }
   
-//   async handleDelete(event){
-
-//     event.preventDefault()
-    
-//     const response=await axios.delete(`/wishlist/${this.props.match.params.person.id}`)
-    
-//     this.setState({//update state for redirect
-//       redirect: true
-//     })
-   
-//  }
-//  async handleUpdate(event){
-
-//     event.preventDefault()
-    
-//     const response=await axios.delete(`/wishlist/${this.props.match.params.person.id}`)
-    
-//     this.setState({//update state for redirect
-//       redirect: true
-//     })
-   
-//  }
-
-
 	render() {
-    const personToShow =this.props.location.person;
-    
-    
+    const events = this.state.events.map(event=>{
+      return (
+      <div key={event.id}>
+        <h5>{event.name}</h5>
+        <h5>{event.price}</h5>
+        <h5>{event.link}</h5>
+      </div>)
+    })
+    const items = this.state.items.map(item=>{
+      return (
+      <div key={item.id}>
+        <h4>{item.name}</h4>
+        <h4>{item.price}</h4>
+        <h4>{item.h5nk}</h4>
+      </div>)
+    })
 		return (
 			<div>
-        <div>Hello</div>
-        {this.state.redirect ?<Redirect to="/"/>:null}
-      {/* we redirect after deleting to the home page */}
-				<div>name: {personToShow.name}</div>
-				<div>email: {personToShow.email}</div>
-				{/* <div>wishlistTitle: {wishlistToShow.title}</div>
-                <div>events:{wishlistToShow.event}</div> */}
-                <SearchForm
-        personId= {personToShow.id}
-        />
-        {/* <button onClick={this.handleUpdate}>Edit</button>
-        <button onClick={this.handleDelete}>Delete</button>
-        <br/>
-        <br/> */}
+        <h1>{this.state.wishlistTitle}</h1>
+        <h1>{this.state.personName}</h1>
+        {events}
+        {items}
 			</div>
 		);
 	}

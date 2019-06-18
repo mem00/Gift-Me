@@ -30,6 +30,13 @@ wishlistRouter.get('/email/:email', async (req,res)=>{
     })
 })
 
+wishlistRouter.get('/id/:wishlist_id', async(req,res)=>{
+    const wishlist = await Wishlist.findByPk(req.params.wishlist_id)
+    res.json({
+        wishlist
+    })
+})
+
 wishlistRouter.post('/create/:person_id', async(req,res) => {
     const person = await Person.findByPk(req.params.person_id); 
     const wishlist = await Wishlist.create(req.body);

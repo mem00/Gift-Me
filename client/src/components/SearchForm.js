@@ -17,7 +17,7 @@ class SearchForm extends Component {
 
   //when this component finishes its first render
 async getData(event){
-    event.preventDefault()
+event.preventDefault()
 //console.log("mistake")
 //make an axios request to the server and save the results as a variable
 const response = await axios.get(`http://localhost:4567/wishlist/email/${this.state.input}`)
