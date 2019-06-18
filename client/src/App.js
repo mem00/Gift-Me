@@ -4,6 +4,7 @@ import './App.css';
 import Home from './components/Home'
 import ListWishlists from './components/ListWishlists';
 import ShowWishlist from './components/ShowWishlist';
+import SearchForm from './components/SearchForm'
 
 function App() {
  return (
@@ -12,6 +13,7 @@ function App() {
          <Route exact path="/" component={Home} />
          <Route exact path="/list-wishlists" component={ListWishlists} />
          <Route exact path="/wishlist" component={ShowWishlist} />
+         <Route exact path="/" component={SearchForm} />
        </Switch>
 
    </div>
