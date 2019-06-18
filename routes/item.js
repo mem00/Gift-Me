@@ -11,6 +11,18 @@ itemRouter.get('/:item_id', async (req,res)=>{
     })
 })
 
+itemRouter.get('/wishlist/:wishlist_id', async(req,res)=>{
+    const items = await Item.findAll({
+        where: {
+            wishlistId : req.params.wishlist_id
+        }
+    })
+    res.json({
+        items
+    })
+
+})
+
 itemRouter.post('/create/:wishlist_id', async (req, res) => {
     const wishlist = await Wishlist.findByPk(req.params.wishlist_id)
     const item = await Item.create(req.body)
