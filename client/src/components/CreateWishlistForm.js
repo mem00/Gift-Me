@@ -14,7 +14,7 @@ class CreateWishlistForm extends Component {
     async handleSumbitForm(evt) {
         try{
             evt.preventDefault()
-            const response = axios.post(`/wishlist/create/${this.props.userId}`,{
+            const response = await axios.post(`/wishlist/create/${this.props.userId}`,{
                 title : this.state.wishlistTitle
             })
             const wishlistId = response.data.wishlist.id

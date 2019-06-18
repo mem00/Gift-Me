@@ -3,10 +3,11 @@ import CreateWishlistForm from './CreateWishlistForm'
 import FindOrCreateUser from './FindOrCreateUser'
 import { Redirect } from 'react-router-dom'
 
-class  CreateWishlist extends Component () {
-    constructor(){
-        super()
+class CreateWishlist extends Component {
+    constructor(props){
+        super(props)
         this.state = ({
+            userEmail: "",
             user: false,
             wishlist: false,
             userId : null,
@@ -16,16 +17,17 @@ class  CreateWishlist extends Component () {
         this.setWishlist = this.setWishlist.bind(this)
     }
 
-    setUser(isLoggedInOrCreated, userId) {
+    setUser(isLoggedInOrCreated, userId, userEmail) {
         this.setState({
             user: isLoggedInOrCreated,
-            userId : userId
+            userId : userId,
+            userEmail: userEmail
         })
     }
-    
+
     setWishlist(isWishlistCreated, wishlistId) {
         this.setState({
-            user: isWishlistCreated,
+            wishlist: isWishlistCreated,
             wishlistId: wishlistId
         })
     }
@@ -33,7 +35,7 @@ class  CreateWishlist extends Component () {
     render() {
         return (
             <div>
-                {this.state.wishlist ? <Redirect to = {{pathname: "/wishlist", state: {wishlistId : this.state.wishlistId}}} />: null}
+                {this.state.wishlist ? <Redirect to = {{pathname: "/wishlist", state: {wishlistId : this.state.wishlistId, userEmail : this.state.userEmail}}} />: null}
                 <h1>Create Wishlist</h1>
                 {this.state.user ? <CreateWishlistForm setWishlist = {this.setWishlist} userId = {this.state.userId}/> : <FindOrCreateUser setUser = {this.setUser} />}
             </div>

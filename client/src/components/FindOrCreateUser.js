@@ -15,12 +15,13 @@ class FindOrCreateUser extends Component {
     async handleSumbitForm(evt) {
         try{
             evt.preventDefault()
-            const response = await axios.post(`person/create/${this.state.userEmail}`, {
-                name : this.state.userEmail,
-                email : this.state.userName
+            const response = await axios.post(`/person/create/${this.state.userEmail}`, {
+                name : this.state.userName,
+                email : this.state.userEmail
             })
             const userId = response.data.person.id
-            this.props.setUser(true, userId)
+            const userEmail = response.data.person.email
+            this.props.setUser(true, userId, userEmail)
         }  
         catch(err) {
             console.log(err.message)
