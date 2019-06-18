@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {Redirect} from "react-router-dom"
 
-class CreateItem extends Component {
+class AddItem extends Component {
     constructor(){
         super();
             this.state = {
@@ -25,7 +25,7 @@ class CreateItem extends Component {
             async handleSubmit(event){
                 event.preventDefault();
 
-                await axios.post("http://localhost:4567/item", {
+                await axios.post("http://localhost:4567/create/:wishlist_id", {
                     name: this.state.name,
                     price:this.state.price,
                     link:this.state.link
@@ -67,4 +67,4 @@ class CreateItem extends Component {
             }
     }
 
-    export default CreateItem
+    export default AddItem
