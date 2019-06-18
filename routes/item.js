@@ -4,46 +4,44 @@ const itemRouter= express.Router()
 const { Item, Wishlist } = require('../models');
 
 
-itemRouter.get('/:name', async (req,res)=>{
-    const item= await Item.findOne({
-        where: {
-            name: req.params.name
-        }
+itemRouter.get('/:item_id', async (req,res)=>{
+    const item= await Item.findByPk(req.params.item_id)
+    res.json({
+        item
     })
-    res.json({item})
 })
 
-
-itemRouter.post('/create/:id', async (req, res) => {
-    const wishlist = await Wishlist.findByPk(req.params.id)
+itemRouter.post('/create/:wishlist_id', async (req, res) => {
+    const wishlist = await Wishlist.findByPk(req.params.wishlist_id)
     const item = await Item.create(req.body)
-      await item.setWishlist(wishlist)
-      res.json({item})
-        
-        }  
-)
-    
-
-itemRouter.put('/update/:id', async (req, res) => {
-        const result= await Item.update(  req.body, { 
-           
-            where :{
-                id :req.params.id 
-            }
-    
-        })
-        res.json({result})
+    await item.setWishlist(wishlist)
+    res.json({
+        item
     })
+})
+    
+itemRouter.put('/update/:item_id', async (req, res) => {
+    const result= await Item.update(  req.body, {       
+        where :{
+            id :req.params.item_id 
+        } 
+    })
+    res.json({
+        result
+    })
+})
 
-    itemRouter.delete('/delete/:id', async (req, res) => {
-        await Item.destroy({
-            where:{
-                id: req.params.id
-            }
-        })
-        res.json("item has been deleted")
-        });
-        
-        module.exports = {
-            itemRouter
+itemRouter.delete('/delete/:item_id', async (req, res) => {
+    await Item.destroy({
+        where:{
+            id: req.params.item_id
         }
+    })
+    res.json(
+        `Item with id ${req.params.item_id} has been deleted`
+    )
+})
+        
+module.exports = {
+    itemRouter
+}

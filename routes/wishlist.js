@@ -4,7 +4,7 @@ const wishlistRouter = express.Router();
 
 const {Wishlist, Person, Event, Item} = require('../models')
 
-wishlistRouter.get('/:email', async (req,res)=>{
+wishlistRouter.get('/item/:email', async (req,res)=>{
     const person = await Person.findOne({
         where: {
             email: req.params.email
@@ -14,14 +14,33 @@ wishlistRouter.get('/:email', async (req,res)=>{
             include: [Item]       
         }]  
     })
-    res.json({person})
+    res.json({
+        person
+    })
+})
+
+wishlistRouter.get('/event/:email', async(req, res) =>{
+    const person = await Person.findOne({
+        where: {
+            email: req.params.email
+        },
+        include: [{ 
+            model: Wishlist,
+            include: [Event]       
+        }]  
+    })
+    res.json({
+        person
+    })  
 })
 
 wishlistRouter.post('/create/:person_id', async(req,res) => {
     const person = await Person.findByPk(req.params.person_id); 
     const wishlist = await Wishlist.create(req.body);
     await wishlist.setPerson(person);
-    res.json({wishlist})
+    res.json({
+        wishlist
+    })
 })
 
 wishlistRouter.put('/edit/:wishlist_id', async(req,res)=>{
@@ -30,13 +49,17 @@ wishlistRouter.put('/edit/:wishlist_id', async(req,res)=>{
             id: req.params.wishlist_id
         }
     })
-    res.json({wishlist})
+    res.json({
+        wishlist
+    })
 })
 
 wishlistRouter.delete('/delete/:wishlist_id', async(req,res)=>{
    const wishlist = await Wishlist.findByPk(req.params.wishlist_id);
    wishlist.destroy();
-   res.json({msg: `wishlist with id ${req.params.wishlist_id} destroyed!`});
+   res.json(
+       {msg: `wishlist with id ${req.params.wishlist_id} destroyed!`}
+   );
 })
  
 module.exports = {
