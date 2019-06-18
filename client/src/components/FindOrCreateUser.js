@@ -1,14 +1,12 @@
 import React, {Component } from 'react'
-import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
-class CreateWishlistForm extends Component {
-    constructor() {
-        super()
+class FindOrCreateUser extends Component {
+    constructor(props) {
+        super(props)
         this.state = {
             userName: "",
             userEmail: "",
-            wishlistTitle: ""
         }
         this.handleSumbitForm = this.handleSumbitForm.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,6 +25,9 @@ class CreateWishlistForm extends Component {
         })
     }
 
+
+
+
     render() {
         return(
             <div>
@@ -43,12 +44,6 @@ class CreateWishlistForm extends Component {
                     placeholder = 'Your Email'
                     value={this.state.userEmail}                 
                    />
-                   <input
-                    type='text'
-                    name='wishlistTitle' 
-                    placeholder= 'Wishlist Title'
-                    value={this.state.wishlistTitle}                 
-                   />
                 </form>
 
             </div>
@@ -56,4 +51,4 @@ class CreateWishlistForm extends Component {
     }
 }
 
-export default CreateWishlistForm
+export default FindOrCreateUser
