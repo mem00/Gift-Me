@@ -2,19 +2,15 @@ const express = require('express');
 
 const eventRouter = express.Router();
 
-const {Wishlist, Person, Event, Item} = require('../models')
+const {Wishlist, Event } = require('../models')
 
-eventRouter.get('/:name', async (req,res)=>{
-    const event= await Event.findOne({
-        where: {
-            name: req.params.name
-        }    
-    })
+eventRouter.get('/:event_id', async (req,res)=>{
+    const event= await Event.findByPk(req.params.event_id)
     res.json({event})
 })
 
-eventRouter.post('/create/:id', async(req, res)=>{
-    const wishlist = await Wishlist.findByPk(req.params.id)
+eventRouter.post('/create/:wishlist_id', async(req, res)=>{
+    const wishlist = await Wishlist.findByPk(req.params.wishlist_id)
     const event = await Event.create(req.body);
     await event.setWishlist(wishlist)
     res.json({
@@ -22,10 +18,10 @@ eventRouter.post('/create/:id', async(req, res)=>{
     })
 })
 
-eventRouter.put('/edit/:id', async(req, res)=>{
+eventRouter.put('/edit/:event_id', async(req, res)=>{
     const event = await Event.update(req.body, {
         where: {
-            id: req.params.id
+            id: req.params.event_id
         }  
     })
     res.json({
@@ -33,16 +29,16 @@ eventRouter.put('/edit/:id', async(req, res)=>{
     })
 })
 
-eventRouter.delete('/edit/:id', async (req, res) => {
-    let deleteEvent = await Event.destroy({
+eventRouter.delete('/delete/:event_id', async (req, res) => {
+    await Event.destroy({
       where: {
-        id: req.params.id
+        id: req.params.event_id
       }
     })
     res.json({
       message: "deleted",
-      data: req.params
-  })
+      data: req.params.event_id
+     })
   })
  
 module.exports = {
