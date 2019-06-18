@@ -12,21 +12,29 @@ class FindOrCreateUser extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    async handleSumbitForm(e) {
-        e.preventDefault()
+    async handleSumbitForm(evt) {
+        try{
+            evt.preventDefault()
+            const response = await axios.post(`person/create/${this.state.userEmail}`, {
+                name : this.state.userEmail,
+                email : this.state.userName
+            })
+            const userId = response.data.person.id
+            this.props.setUser(true, userId)
+        }  
+        catch(err) {
+            console.log(err.message)
+        } 
 
     }
 
-    handleInputChange(e){
-        const name = e.target.name;
-        const value = e.target.value;
+    handleInputChange(evt){
+        const name = evt.target.name;
+        const value = evt.target.value;
         this.setState({
             [name] : value
         })
     }
-
-
-
 
     render() {
         return(
@@ -43,6 +51,11 @@ class FindOrCreateUser extends Component {
                     name='userEmail' 
                     placeholder = 'Your Email'
                     value={this.state.userEmail}                 
+                   />
+                   <input
+                    type='submit'
+                    name='submit' 
+                    placeholder= 'Submit'               
                    />
                 </form>
 
