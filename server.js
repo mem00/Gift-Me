@@ -5,6 +5,7 @@ const cors = require('cors')
 const {wishlistRouter} = require('./routes/wishlist')
 const {eventRouter} = require('./routes/event')
 const {itemRouter} = require('./routes/item')
+const {personRouter} = require('./routes/person')
 
 const PORT = process.env.PORT || 4567;
 const app = express();
@@ -28,6 +29,8 @@ app.use('/wishlist', wishlistRouter)
 app.use('/event', eventRouter)
 
 app.use('/item', itemRouter)
+
+app.use('/person', personRouter)
 
 
 app.listen(PORT, ()=> console.log(`App listening on port ${PORT}`))

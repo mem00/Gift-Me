@@ -1,11 +1,12 @@
 import React, {Component } from 'react'
 import axios from 'axios'
 
-class CreateWishlistForm extends Component {
+class FindOrCreateUser extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            wishlistTitle: ""
+            userName: "",
+            userEmail: "",
         }
         this.handleSumbitForm = this.handleSumbitForm.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -14,15 +15,18 @@ class CreateWishlistForm extends Component {
     async handleSumbitForm(evt) {
         try{
             evt.preventDefault()
-            const response = await axios.post(`/wishlist/create/${this.props.userId}`,{
-                title : this.state.wishlistTitle
+            const response = await axios.post(`/person/create/${this.state.userEmail}`, {
+                name : this.state.userName,
+                email : this.state.userEmail
             })
-            const wishlistId = response.data.wishlist.id
-            this.props.setWishlist(true, wishlistId);
-        }
+            const userId = response.data.person.id
+            const userEmail = response.data.person.email
+            this.props.setUser(true, userId, userEmail)
+        }  
         catch(err) {
             console.log(err.message)
-        }
+        } 
+
     }
 
     handleInputChange(evt){
@@ -39,9 +43,15 @@ class CreateWishlistForm extends Component {
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
                    <input
                     type='text'
-                    name='wishlistTitle' 
-                    placeholder= 'Wishlist Title'
-                    value={this.state.wishlistTitle}                 
+                    name='userName' 
+                    placeholder= 'Your Name'
+                    value={this.state.userName}                 
+                   />
+                   <input
+                    type='text'
+                    name='userEmail' 
+                    placeholder = 'Your Email'
+                    value={this.state.userEmail}                 
                    />
                    <input
                     type='submit'
@@ -49,9 +59,10 @@ class CreateWishlistForm extends Component {
                     placeholder= 'Submit'               
                    />
                 </form>
+
             </div>
         )
     }
 }
 
-export default CreateWishlistForm
+export default FindOrCreateUser
