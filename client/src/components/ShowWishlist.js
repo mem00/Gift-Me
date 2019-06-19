@@ -13,6 +13,7 @@ class ShowWishlist extends Component {
       wishlistTitle:"",
       wishlistId: null,
       personName: "", 
+      date: "",
       redirect: false
     };
     this.handleDelete = this.handleDelete.bind(this)
@@ -30,13 +31,18 @@ class ShowWishlist extends Component {
       const personId = wishlistResponse.data.wishlist.personId
       const personResponse = await axios.get(`/person/${personId}`)
       const personName = personResponse.data.person.name
+    
+      
       this.setState({
         items, 
         events,
         wishlistTitle,
         wishlistId,
-        personName
+        personName,
+      
+       
       })
+     
     }
     catch(err){
       console.log(err.message)
@@ -53,6 +59,19 @@ class ShowWishlist extends Component {
        [paths] : updatedArray
      })
   }
+
+  async handleChange(path, id) {
+    await axios.put(`/${path}/update/${id}`)
+    this.forceUpdate()
+    const response = await axios.get(`/${path}/wishlist/${this.props.match.params.id}`)
+    const paths =  path+'s'
+    const updatedArray = response.data[paths]
+    this.setState({
+      [paths] : updatedArray
+    })
+ }
+
+  
  
 	render() {
     const events = this.state.events.map(event=>{
@@ -65,21 +84,25 @@ class ShowWishlist extends Component {
     const items = this.state.items.map(item=>{
       return (
       <div key={item.id}>
-        <h4>{item.name}<button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</button></h4>
+        <h4>{item.name}<button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</button>
+        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><button>Edit Item</button></Link>
+        </h4>
         <h4>{item.price}</h4>
         <h4>{item.link}</h4>
       </div>)
     })
+  
 		return (
 			<div>
         {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
         <Link to="/"><button>Home</button></Link>
         <h1>{this.state.wishlistTitle}</h1>
-        <h1>{this.state.personName}</h1>      
+        <h1>{this.state.personName}</h1>       
         {events}
         <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><button>Add Event</button></Link>
         {items}   
         <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><button>Add Item</button></Link>
+        
 			</div>
 		);
 	}
