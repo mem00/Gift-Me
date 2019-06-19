@@ -1,5 +1,8 @@
 import React, {Component } from 'react'
 import axios from 'axios'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+
 
 class CreateWishlistForm extends Component {
     constructor(props) {
@@ -36,17 +39,14 @@ class CreateWishlistForm extends Component {
         return(
             <div>
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
-                   <input
-                    type='text'
+                <h1><Button type='submit' variant="text" color="primary">Create Wishlist</Button></h1>
+                   <TextField
+                    variant="outlined"
                     name='wishlistTitle' 
                     placeholder= 'Wishlist Title'
                     value={this.state.wishlistTitle}                 
                    />
-                   <input
-                    type='submit'
-                    name='submit' 
-                    placeholder= 'Submit'               
-                   />
+
                 </form>
             </div>
         )
