@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import {Redirect} from "react-router-dom"
+import {Redirect} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 
 
 class AddItem extends Component {
@@ -48,21 +49,27 @@ class AddItem extends Component {
             onChange={this.handleChange}
             onSubmit={this.handleSubmit}
             >
-                <input
+                <TextField
                 name="name"
                 type="text"
+                id="tf-outlined" 
+                class="mdc-text-field__input"
                 placeholder="Name"
                 value={this.state.name}
                 />
-                <input
+                <TextField
                 name="price"
                 type="number"
+                id="tf-outlined" 
+                class="mdc-text-field__input"
                 placeholder="Price"
                 value={this.state.price}
                 />
-                <input
+                <TextField
                 name="link"
                 type="text"
+                id="tf-outlined" 
+                class="mdc-text-field__input"
                 placeholder="Link"
                 value={this.state.link}
                 /> <Button variant="text" type="submit" color="primary">

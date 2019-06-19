@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import {Redirect} from "react-router-dom"
+import {Redirect} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 
 class AddEvent extends Component {
     constructor(){
@@ -41,16 +42,20 @@ class AddEvent extends Component {
                 onChange={this.handleChange}
                 onSubmit={this.handleSubmit}
                 >
-                <input
+                <TextField
                 name="name"
                 type="text"
                 placeholder="NAME OF EVENT"
+                id="tf-outlined" 
+                class="mdc-text-field__input"
                 value={this.state.name}
                 />
-                    <input
+                    <TextField
                 name="date"
                 type="date"
                 placeholder="DATE"
+                id="tf-outlined" 
+                class="mdc-text-field__input"
                 value={this.state.date}
                 />
                 <Button variant="text" type="submit" color="primary">
