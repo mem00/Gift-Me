@@ -71,13 +71,16 @@ class ShowWishlist extends Component {
       <div key={item.id}>
         <TextField label="Item" value={item.name}/><Button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</Button>
         <TextField label="Price" value={item.price}/>
-        <TextField label="Link" value={item.link}/>
+        {/* <TextField label="Link" value={item.link}/> */}
+        <Button href="#text-buttons" value={item.link}>
+        Link
+      </Button>
       </div>)
     })
 		return (
 			<div className="wishlist-wrapper">
         {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
-        <Link to="/"><Button>Home</Button></Link>
+        <Link to="/"><Button  color="primary">Home</Button></Link>
         <TextField label= "Name" value={this.state.personName}/>      
         <TextField label="Wish List" value={this.state.wishlistTitle}/>
         {events}
