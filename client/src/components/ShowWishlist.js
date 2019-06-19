@@ -12,8 +12,10 @@ class ShowWishlist extends Component {
       events: [],
       wishlistTitle:"",
       wishlistId: null,
-      personName: ""
+      personName: "", 
+      redirect: false
     };
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
 	async componentDidMount() {
@@ -40,26 +42,37 @@ class ShowWishlist extends Component {
       console.log(err.message)
     }	
   }
+
+  async handleDelete(path, id) {
+     await axios.delete(`/${path}/delete/${id}`)
+     this.forceUpdate()
+     const response = await axios.get(`/${path}/wishlist/${this.props.match.params.id}`)
+     const paths =  path+'s'
+     const updatedArray = response.data[paths]
+     this.setState({
+       [paths] : updatedArray
+     })
+  }
  
 	render() {
     const events = this.state.events.map(event=>{
       return (
       <div key={event.id}>
-        <h5>{event.name}</h5>
-        <h5>{event.price}</h5>
-        <h5>{event.link}</h5>
+        <h5>{event.name}<button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</button></h5>
+        <h5>{event.date}</h5>
       </div>)
     })
     const items = this.state.items.map(item=>{
       return (
       <div key={item.id}>
-        <h4>{item.name}</h4>
+        <h4>{item.name}<button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</button></h4>
         <h4>{item.price}</h4>
         <h4>{item.link}</h4>
       </div>)
     })
 		return (
 			<div>
+        {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
         <Link to="/"><button>Home</button></Link>
         <h1>{this.state.wishlistTitle}</h1>
         <h1>{this.state.personName}</h1>      
