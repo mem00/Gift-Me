@@ -54,7 +54,7 @@ class ShowWishlist extends Component {
       <div key={item.id}>
         <h4>{item.name}</h4>
         <h4>{item.price}</h4>
-        <h4>{item.h5nk}</h4>
+        <h4>{item.link}</h4>
       </div>)
     })
 		return (
