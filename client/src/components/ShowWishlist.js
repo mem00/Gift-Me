@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Redirect, Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button'
+import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 
 class ShowWishlist extends Component {
@@ -78,16 +78,16 @@ class ShowWishlist extends Component {
     const events = this.state.events.map(event=>{
       return (
       <div key={event.id}>
-        <h5>{event.name}<button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</button></h5>
-        <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><button>Edit Event</button></Link>
+        <h5>{event.name}<button onClick= {()=>this.handleDelete("event",event.id)} name="event"><MaterialIcon icon="delete" /></button></h5>
+        <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link>
         <h5>{event.date}</h5>
       </div>)
     })
     const items = this.state.items.map(item=>{
       return (
       <div key={item.id}>
-        <h4>{item.name}<button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</button>
-        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><button>Edit Item</button></Link>
+        <h4>{item.name}<button onClick= {()=>this.handleDelete("item", item.id)} name="item"><MaterialIcon icon="delete" /> </button>
+        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>
         </h4>
         <h4>{item.price}</h4>
         <h4>{item.link}</h4>
@@ -97,7 +97,8 @@ class ShowWishlist extends Component {
 		return (
 			<div>
         {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
-        <Link to="/"><button>Home</button></Link>
+        <Link to="/"><MaterialIcon icon="home" /> 
+</Link>
         <h1>{this.state.wishlistTitle}</h1>
         <h1>{this.state.personName}</h1>       
         {events}
