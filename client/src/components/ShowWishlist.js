@@ -11,6 +11,7 @@ class ShowWishlist extends Component {
       items: [],
       events: [],
       wishlistTitle:"",
+      wishlistId: null,
       personName: ""
     };
   }
@@ -23,6 +24,7 @@ class ShowWishlist extends Component {
       const items = itemResponse.data.items
       const events = eventResponse.data.events
       const wishlistTitle = wishlistResponse.data.wishlist.title
+      const wishlistId = wishlistResponse.data.wishlist.id
       const personId = wishlistResponse.data.wishlist.personId
       const personResponse = await axios.get(`/person/${personId}`)
       const personName = personResponse.data.person.name
@@ -30,6 +32,7 @@ class ShowWishlist extends Component {
         items, 
         events,
         wishlistTitle,
+        wishlistId,
         personName
       })
     }
@@ -39,7 +42,7 @@ class ShowWishlist extends Component {
 
   	
   }
-  
+ 
 	render() {
     const events = this.state.events.map(event=>{
       return (
@@ -59,10 +62,13 @@ class ShowWishlist extends Component {
     })
 		return (
 			<div>
+        <Link to="/"><button>Home</button></Link>
         <h1>{this.state.wishlistTitle}</h1>
         <h1>{this.state.personName}</h1>
         {events}
         {items}
+       
+        <Link to="/"><button>Add Item</button></Link>
 			</div>
 		);
 	}
