@@ -38,9 +38,7 @@ class ShowWishlist extends Component {
     }
     catch(err){
       console.log(err.message)
-    }
-
-  	
+    }	
   }
  
 	render() {
@@ -64,11 +62,11 @@ class ShowWishlist extends Component {
 			<div>
         <Link to="/"><button>Home</button></Link>
         <h1>{this.state.wishlistTitle}</h1>
-        <h1>{this.state.personName}</h1>
+        <h1>{this.state.personName}</h1>      
         {events}
-        {items}
-       
-        <Link to="/"><button>Add Item</button></Link>
+        <Link to="/add-event"><button>Add Event</button></Link>
+        {items}   
+        <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><button>Add Item</button></Link>
 			</div>
 		);
 	}

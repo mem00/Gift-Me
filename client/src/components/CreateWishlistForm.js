@@ -32,7 +32,6 @@ class CreateWishlistForm extends Component {
             [name] : value
         })
     }
-
     render() {
         return(
             <div>
