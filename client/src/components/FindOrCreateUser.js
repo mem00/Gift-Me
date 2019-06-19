@@ -1,5 +1,7 @@
 import React, {Component } from 'react'
 import axios from 'axios'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 
 class FindOrCreateUser extends Component {
     constructor(props) {
@@ -41,22 +43,20 @@ class FindOrCreateUser extends Component {
         return(
             <div>
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
-                   <input
+                   <h1><Button type='submit' variant="text" color="primary">Login</Button></h1>
+                   <TextField
+                    variant="outlined"
                     type='text'
                     name='userName' 
                     placeholder= 'Your Name'
                     value={this.state.userName}                 
                    />
-                   <input
+                   <TextField
+                    variant="outlined"
                     type='text'
                     name='userEmail' 
                     placeholder = 'Your Email'
                     value={this.state.userEmail}                 
-                   />
-                   <input
-                    type='submit'
-                    name='submit' 
-                    placeholder= 'Submit'               
                    />
                 </form>
 

@@ -2,7 +2,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Redirect, Link} from 'react-router-dom';
-
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import clsx from 'clsx';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
 
 class ShowWishlist extends Component {
 	constructor() {
@@ -13,7 +17,6 @@ class ShowWishlist extends Component {
       wishlistTitle:"",
       wishlistId: null,
       personName: "", 
-      date: "",
       redirect: false
     };
     this.handleDelete = this.handleDelete.bind(this)
@@ -31,18 +34,13 @@ class ShowWishlist extends Component {
       const personId = wishlistResponse.data.wishlist.personId
       const personResponse = await axios.get(`/person/${personId}`)
       const personName = personResponse.data.person.name
-    
-      
       this.setState({
         items, 
         events,
         wishlistTitle,
         wishlistId,
-        personName,
-      
-       
+        personName
       })
-     
     }
     catch(err){
       console.log(err.message)
@@ -59,51 +57,33 @@ class ShowWishlist extends Component {
        [paths] : updatedArray
      })
   }
-
-  async handleChange(path, id) {
-    await axios.put(`/${path}/update/${id}`)
-    this.forceUpdate()
-    const response = await axios.get(`/${path}/wishlist/${this.props.match.params.id}`)
-    const paths =  path+'s'
-    const updatedArray = response.data[paths]
-    this.setState({
-      [paths] : updatedArray
-    })
- }
-
-  
  
 	render() {
     const events = this.state.events.map(event=>{
       return (
       <div key={event.id}>
-        <h5>{event.name}<button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</button></h5>
-        <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><button>Edit Event</button></Link>
-        <h5>{event.date}</h5>
+        <TextField value={event.name}/><Button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</Button>
+        <TextField value={event.date}/>
       </div>)
     })
     const items = this.state.items.map(item=>{
       return (
       <div key={item.id}>
-        <h4>{item.name}<button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</button>
-        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><button>Edit Item</button></Link>
-        </h4>
-        <h4>{item.price}</h4>
-        <h4>{item.link}</h4>
+        <TextField label="Item" value={item.name}/><Button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</Button>
+        <TextField label="Price" value={item.price}/>
+        <TextField label="Link" value={item.link}/>
       </div>)
     })
-  
 		return (
-			<div>
+			<div className="wishlist-wrapper">
         {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
-        <Link to="/"><button>Home</button></Link>
-        <h1>{this.state.wishlistTitle}</h1>
-        <h1>{this.state.personName}</h1>       
+        <Link to="/"><Button>Home</Button></Link>
+        <TextField label= "Name" value={this.state.personName}/>      
+        <TextField label="Wish List" value={this.state.wishlistTitle}/>
         {events}
-        <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><button>Add Event</button></Link>
+        <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Event</Button></Link>
         {items}   
-        <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><button>Add Item</button></Link>
-        
+        <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Item</Button></Link>
 			</div>
 		);
 	}

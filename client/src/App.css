@@ -32,19 +32,19 @@
   }
 } */
 
-.main-wrapper{
+.top-flex{
   display:flex;
   justify-content: space-around;
   margin-top:150px;
-  border:1px solid red;
+  /* border:1px solid red; */
   
 }
 #search{
-  border:1px solid blue;
+  /* border:1px solid blue; */
   
 }
 #create-wrapper{
-  border:1px solid blue;
+  /* border:1px solid blue; */
 
 }
 body{
@@ -56,7 +56,7 @@ body{
 
 .top-title{
   text-align:center;
-  font-size:70px;
+  font-size:100px;
   /* border:1px solid blue; */
   margin-top:60px;
   color:#336B87;
@@ -215,4 +215,10 @@ width:300px;
   font-family: 'Satisfy', cursive;
    
 
+}
+.wishlist-wrapper{
+  display:flex;
+  flex-direction:column;
+  border:1px solid blue;
+  
 }

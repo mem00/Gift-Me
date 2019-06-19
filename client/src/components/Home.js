@@ -15,25 +15,28 @@ function Home() {
 
 
 
-
       return(
         <Card className="card">
+        <CardContent>
         {/* <CardContent> */}
-          <div>
-            <h1 className="top-title">Gift me</h1>
-            <div className="main-wrapper">
+        <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography>
 
-            <div id="create-wrapper" className="matching-front">
+
+          <div className="top-flex">
+        
+            {/* <h1 className="top-title">Gift me</h1> */}
+            <Typography className="main-wrapper" id="create-wrapper">
             <CreateWishlist />
-            </div>
-            
+            </Typography>
+
+ <Typography>           
             <Search />
-            </div>
+            </Typography>
         </div>
+        
+        </CardContent>
         </Card>
     )
     
 }
-
-
 export default Home

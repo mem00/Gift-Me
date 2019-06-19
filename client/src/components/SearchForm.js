@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 import {Link, Redirect} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import clsx from 'clsx';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+
+
 
 
 
@@ -74,6 +77,7 @@ this.setState({//storing input to reuse it
         this.state.searchAttempted && <div>nobody home</div>
 
     return (
+
     <div className="search-wrapper">
        
 
@@ -83,6 +87,8 @@ this.setState({//storing input to reuse it
         variant="outlined"/>
         
     
+
+   
     {userInfo}
      
    
