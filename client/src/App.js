@@ -13,7 +13,6 @@ import UpdateEvent from './components/UpdateEvent.js'
 function App() {
  return (
    <div>
-    
       <Switch>
          <Route exact path="/" component={Home} />
          <Route exact path="/wishlist/:id" component={ShowWishlist} />
