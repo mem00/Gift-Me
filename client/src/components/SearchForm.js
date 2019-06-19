@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+
 
 class SearchForm extends Component {
   constructor(){
@@ -64,10 +67,9 @@ this.setState({//storing input to reuse it
         this.state.searchAttempted && <div>nobody home</div>
 
     return (
-    <div>
-        
-     <input name="email" type="text" placeholder="Enter email" onChange={this.updateInput}></input>
-     <button onClick={this.getData}>Submit</button>
+    <div>    
+    <h1><Button variant="text" color="primary" onClick={this.getData}>Search</Button> </h1>
+     <TextField variant="outlined" name="email" type="text" placeholder="Enter email" onChange={this.updateInput}/>
     {userInfo}
      
     
