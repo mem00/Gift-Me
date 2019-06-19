@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {Redirect} from "react-router-dom"
+import Button from '@material-ui/core/Button'
 
 class AddEvent extends Component {
     constructor(){
@@ -52,8 +53,8 @@ class AddEvent extends Component {
                 placeholder="DATE"
                 value={this.state.date}
                 />
-                <input type="submit"
-                />
+                <Button variant="text" type="submit" color="primary">
+                Add Event</Button>
                 </form></div>
             )
         }

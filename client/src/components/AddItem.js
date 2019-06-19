@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {Redirect} from "react-router-dom"
+import Button from '@material-ui/core/Button'
+
 
 class AddItem extends Component {
     constructor(){
@@ -63,9 +65,9 @@ class AddItem extends Component {
                 type="text"
                 placeholder="Link"
                 value={this.state.link}
-                />
-                <input type="submit"
-                />
+                /> <Button variant="text" type="submit" color="primary">
+                Add Item</Button>
+                
             </form></div>
             )
         }

@@ -13,7 +13,7 @@ import Button from '@material-ui/core/Button'
 function App() {
  return (
    <div>
-     <Button variant="contained" color="primary">Test</Button>
+    
       <Switch>
          <Route exact path="/" component={Home} />
          <Route exact path="/wishlist/:id" component={ShowWishlist} />
