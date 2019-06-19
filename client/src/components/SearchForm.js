@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {Link, Redirect} from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import clsx from 'clsx';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+
+
 
 class SearchForm extends Component {
   constructor(){
@@ -52,11 +59,14 @@ this.setState({//storing input to reuse it
   render() {
     const userInfo = this.state.email ?
         <div>
-            <div>{this.state.name}</div>
-            <div>{this.state.email && this.state.email}</div>
+            <TextField 
+            label= "Name" value={this.state.name}/>
+            <TextField
+            label="Email" value={this.state.email && this.state.email}/>
             <div>
                 {this.state.wishlistArray.map((wishlist)=>{
-                  return <Link key={wishlist.id} to={`/wishlist/${wishlist.id}`}> <div> {wishlist.title}</div> </Link>
+                  return <Link key={wishlist.id} to={`/wishlist/${wishlist.id}`}> <TextField 
+                  label="Wish List Name" value={wishlist.title}/> </Link>
                 })}
               </div>
         </div>
@@ -64,13 +74,18 @@ this.setState({//storing input to reuse it
         this.state.searchAttempted && <div>nobody home</div>
 
     return (
-    <div>
+    <div className="search-wrapper">
+       
+
+     <Button color="primary" className="button"  onClick={this.getData}>Give a Gift</Button>
+    
+     <TextField name="email" type="text" placeholder="Search by email" onChange={this.updateInput}margin="normal"
+        variant="outlined"/>
         
-     <input name="email" type="text" placeholder="Enter email" onChange={this.updateInput}></input>
-     <button onClick={this.getData}>Submit</button>
+    
     {userInfo}
      
-    
+   
     </div>
       
     )

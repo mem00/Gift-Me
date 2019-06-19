@@ -4,8 +4,8 @@ import SearchForm from './SearchForm';
 
 function Search() {
     return(
-        <div>
-            <h1>Search</h1>
+        <div id="search" className="matching-front">
+            {/* <h1 className="hOne">Give a Gift</h1> */}
             <SearchForm />
         </div>
     )

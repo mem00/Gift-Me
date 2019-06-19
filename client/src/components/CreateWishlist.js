@@ -36,7 +36,7 @@ class CreateWishlist extends Component {
         return (
             <div>
                 {this.state.wishlist ? <Redirect to = {{pathname: `/wishlist/${this.state.wishlistId}`, state: {wishlistId : this.state.wishlistId, userEmail : this.state.userEmail}}} />: null}
-                <h1>Create Wishlist</h1>
+                <h1 className="hOne">Create Wishlist</h1>
                 {this.state.user ? <CreateWishlistForm setWishlist = {this.setWishlist} userId = {this.state.userId}/> : <FindOrCreateUser setUser = {this.setUser} />}
             </div>
         )
