@@ -64,7 +64,7 @@ class ShowWishlist extends Component {
         <h1>{this.state.wishlistTitle}</h1>
         <h1>{this.state.personName}</h1>      
         {events}
-        <Link to="/add-event"><button>Add Event</button></Link>
+        <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><button>Add Event</button></Link>
         {items}   
         <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><button>Add Item</button></Link>
 			</div>
