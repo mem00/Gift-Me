@@ -5,10 +5,12 @@ import Home from './components/Home'
 import ShowWishlist from './components/ShowWishlist';
 import AddItem from './components/AddItem'
 import AddEvent from './components/AddEvent'
+import Button from '@material-ui/core/Button'
 
 function App() {
  return (
    <div>
+     <Button variant="contained" color="primary">Test</Button>
       <Switch>
          <Route exact path="/" component={Home} />
          <Route exact path="/wishlist/:id" component={ShowWishlist} />
