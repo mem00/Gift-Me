@@ -78,6 +78,7 @@ class ShowWishlist extends Component {
       return (
       <div key={event.id}>
         <h5>{event.name}<button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</button></h5>
+        <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><button>Edit Event</button></Link>
         <h5>{event.date}</h5>
       </div>)
     })

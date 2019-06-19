@@ -30,7 +30,7 @@ eventRouter.post('/create/:wishlist_id', async(req, res)=>{
     })
 })
 
-eventRouter.put('/edit/:event_id', async(req, res)=>{
+eventRouter.put('/update/:event_id', async(req, res)=>{
     const event = await Event.update(req.body, {
         where: {
             id: req.params.event_id
