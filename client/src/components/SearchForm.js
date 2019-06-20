@@ -50,8 +50,6 @@ async getData(event){
         wishlistArray:[]
     })
 
-
-
 }
 
 updateInput(event){
