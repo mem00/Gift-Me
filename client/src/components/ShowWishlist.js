@@ -79,7 +79,7 @@ class ShowWishlist extends Component {
         <h5>{event.name}
         <br/>{event.date}</h5>
         <div className="event-icon-wrapper">
-        <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
+        <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} color= "blue" icon = "delete" name="event"></MaterialIcon>
         <UpdateEvent eventId={event.id} wishlistId={this.state.wishlistId} setEvents={this.setEvents}/>
         </div>
       </div>)
@@ -91,7 +91,7 @@ class ShowWishlist extends Component {
         <div>{item.name}{"      "}{"    "}{"$"}{item.price}{"       "}<a target="_blank"  rel="noopener noreferrer" href={item.link}>link</a>
         </div>
         <div className="icon-wrapper">
-          <MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"></MaterialIcon>  
+          <MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} color = "blue" icon= "delete" name="item"></MaterialIcon>  
           <span><UpdateItem itemId={item.id} wishlistId={this.state.wishlistId} setItems={this.setItems}/></span>
         </div>
       </h4></div>
@@ -100,7 +100,7 @@ class ShowWishlist extends Component {
 		return (
 			<div className="wishlist-wrapper">
             <div className="home-icon">
-        <Link to="/"><MaterialIcon  icon = "home"/></Link>
+        <Link to="/"><MaterialIcon  icon = "home" color="blue"/></Link>
         </div>
         <List>
             <ListItem>
@@ -117,7 +117,7 @@ class ShowWishlist extends Component {
          </div>
          <br/>
          {items}   
-         <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems}/>
+         <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems} className="item-squeeze"/>
 			</div>
 		);
 	}

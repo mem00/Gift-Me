@@ -85,7 +85,7 @@ handleCloseModal(){
 render(){
     return (
         <div>
-          <MaterialIcon icon="edit" onClick={this.handleOpenModal} />
+          <MaterialIcon icon="edit" color = "blue" onClick={this.handleOpenModal} />
           <Modal
                 ariaHideApp={false}
                 isOpen={this.state.showModal}

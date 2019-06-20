@@ -22,7 +22,9 @@
 .App-link {
   color: #61dafb;
 }
-
+.item-squeeze{
+  margin-bottom:30px;
+}
 /* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -50,8 +52,8 @@ body{
   text-align:center;
   
   /* border:1px solid blue; */
-  margin-top:100px;
-  color:purple;
+  margin-top:10px;
+  color:blue;
   font-style:italic;
   height:50px;
   font-size:70px;
@@ -160,7 +162,7 @@ padding:20px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 10px;
-    padding-bottom: 0;
-    margin-bottom:0;
+    padding-bottom: -50px;
+    margin-bottom:-90px;
   
 }
