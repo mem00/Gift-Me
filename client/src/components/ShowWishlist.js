@@ -74,8 +74,8 @@ class ShowWishlist extends Component {
       <div key={item.id}>         
         <h4 className="item-wrapper">
         
-        <div>{item.name}{"      "}{"$"}{item.price}{"      "}
-        <a target="_blank"  rel="noopener noreferrer" href={item.link}>Link</a>
+        <div>{item.name}{"      "}{"    "}{"$"}{item.price}{"       "}
+        <a target="_blank"  rel="noopener noreferrer" href={item.link}>link</a>
         </div><div className="icon-wrapper"><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
         <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link> </div>   
       </h4></div>)

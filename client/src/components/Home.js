@@ -8,15 +8,23 @@ import CardContent from '@material-ui/core/CardContent';
 
 import Typography from '@material-ui/core/Typography';
 
+import {makeStyles} from '@material-ui/styles'
 
+const clear = makeStyles({
+  root: {
+
+      height: '220px',
+     
+  }
+})
 
 function Home() {
-
+  const classes = clear();
       return(
         <div>
-          <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography>
+          <h1 className="top-title" >Gift me</h1>
             <div className="top-flex">
-              <Card>
+              <Card className={classes.root}> 
                 <CardContent>
                   <Typography >
                     <CreateWishlist />
@@ -25,9 +33,9 @@ function Home() {
               </Card>
               <Card>
                 <CardContent>
-                  <Typography>           
+                          
                     <Search />
-                  </Typography>
+                 
                 </CardContent>
               </Card>
             </div> 

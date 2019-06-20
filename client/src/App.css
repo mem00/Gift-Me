@@ -36,141 +36,33 @@
   display:flex;
   justify-content: space-around;
   margin-top:150px;
-  /* border:1px solid red; */
   
 }
-#search{
-  /* border:1px solid blue; */
-  
-}
-#create-wrapper{
-  /* border:1px solid blue; */
-}  
-/* .price-wrapper{
-display: flex;
-flex-direction: row;
-} */
+
 
 body{
-  font-family: 'Satisfy', cursive;
-  /* background-image:url("https://res.cloudinary.com/db77zoxry/image/upload/v1560914775/leone-venter-469710-unsplash.jpg"); */
   
+  font-family: "Roboto";
   background-size: cover;
 }
 
 .top-title{
   text-align:center;
-  font-size:100px;
+  
   /* border:1px solid blue; */
   margin-top:60px;
   color:#336B87;
-  /* -webkit-animation: bounce-in-top 1.6s both;
-	        animation: bounce-in-top 1.6s both; */
+  font-style:italic;
+  height:50px;
+  margin:15px;
+
 }
-/* @-webkit-keyframes bounce-in-top {
-  0% {
-    -webkit-transform: translateY(-500px);
-            transform: translateY(-500px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-    opacity: 0;
-  }
-  38% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-    opacity: 1;
-  }
-  55% {
-    -webkit-transform: translateY(-65px);
-            transform: translateY(-65px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  72% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-  81% {
-    -webkit-transform: translateY(-28px);
-            transform: translateY(-28px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  90% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-  95% {
-    -webkit-transform: translateY(-8px);
-            transform: translateY(-8px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
+
+
+  
+.MuiTypography-body1{
+ 
 }
-@keyframes bounce-in-top {
-  0% {
-    -webkit-transform: translateY(-500px);
-            transform: translateY(-500px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-    opacity: 0;
-  }
-  38% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-    opacity: 1;
-  }
-  55% {
-    -webkit-transform: translateY(-65px);
-            transform: translateY(-65px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  72% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-  81% {
-    -webkit-transform: translateY(-28px);
-            transform: translateY(-28px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  90% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-  95% {
-    -webkit-transform: translateY(-8px);
-            transform: translateY(-8px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-} */
 
 
 .h-one{
@@ -179,35 +71,7 @@ body{
   font-size:40px;
   padding-left:40px;
 }
-/* .matching-front{
-    -webkit-animation: slide-in-fwd-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: slide-in-fwd-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  
-}
-@-webkit-keyframes slide-in-fwd-bottom {
-  0% {
-    -webkit-transform: translateZ(-1400px) translateY(800px);
-            transform: translateZ(-1400px) translateY(800px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(0) translateY(0);
-            transform: translateZ(0) translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-fwd-bottom {
-  0% {
-    -webkit-transform: translateZ(-1400px) translateY(800px);
-            transform: translateZ(-1400px) translateY(800px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateZ(0) translateY(0);
-            transform: translateZ(0) translateY(0);
-    opacity: 1;
-  }
-} */
+
 .search-wrapper{
 display:flex;
 flex-direction:column;
@@ -216,7 +80,6 @@ width:300px;
 .button{
   margin-bottom:100px;
   height:70px;
-  border:1px solid blue;
   font-family: 'Satisfy', cursive;
    
 
@@ -224,7 +87,6 @@ width:300px;
 .wishlist-wrapper{
   display:flex;
   flex-direction:column;
-  border:1px solid blue;
   width: 500px;
   height:500px;
   margin:0 auto;
@@ -235,18 +97,17 @@ width:300px;
 }
 i.material.md-24{
   margin:0px;
-  border:1px solid yellow;
+  
 
 }
 .last{
   display:flex;
   flex-direction:row;
-  border:1px solid blue;
+  
   justify-content:center;
   
 }
 .item-wrapper{
-  border:1px solid red;
   display:flex;
   justify-content:space-between;
   padding:10px;
@@ -256,16 +117,9 @@ i.material.md-24{
   padding-top:15px;
   padding-right:10px;
 }
-.MuiButton-label{
-  border:1px solid pink;
-  
-}
-.event-button{
-  border:1px solid black;
-}
-.MuiButtonBase-root.MuiButton-root.event-button.MuiButton-contained{
-  
-}
+
+
+
 .event-wrapper{
   display:flex;
   flex-direction: row;
@@ -278,3 +132,10 @@ text-align:right;
 padding:20px;
 
 }
+
+/* .top-flex:last-child {
+  font-size:200%;
+  margin:15px;
+  border:1px solid blue;
+  height:200px;
+} */
