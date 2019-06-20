@@ -1,5 +1,10 @@
 //have to add another route to get the event
 import React, { Component } from 'react';
+import AddItem from './AddItem'
+import AddEvent from './AddEvent'
+import UpdateItem from './UpdateItem'
+import UpdateEvent from './UpdateEvent'
+
 import axios from 'axios';
 import {Redirect, Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
@@ -21,6 +26,8 @@ class ShowWishlist extends Component {
       redirect: false
     };
     this.handleDelete = this.handleDelete.bind(this)
+    this.setItems = this.setItems.bind(this)
+    this.setEvents = this.setEvents.bind(this)
   }
 
 	async componentDidMount() {
@@ -58,14 +65,21 @@ class ShowWishlist extends Component {
        [paths] : updatedArray
      })
   }
+
+  setItems(items){  
+    this.setState({items})
+  }
+  setEvents(events){  
+    this.setState({events})
+  }
  
 	render() {
     const events = this.state.events.map(event=>{
       return (
       <div key={event.id}>
         <h5>{event.name}{"      "}{event.date}</h5>
-      <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
-        <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link> 
+        <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
+        <UpdateEvent eventId={event.id} wishlistId={this.state.wishlistId} setEvents={this.setEvents}/>
       </div>)
     })
     const items = this.state.items.map(item=>{
@@ -75,7 +89,7 @@ class ShowWishlist extends Component {
         <div>{item.name}{"      "}{"$"}{item.price}{"      "}
         <a target="_blank"  rel="noopener noreferrer" href={item.link}>Link</a>
         </div></h4><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
-        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>     
+        <UpdateItem itemId={item.id} wishlistId={this.state.wishlistId} setItems={this.setItems}/>
       </div>)
     })
 		return (
@@ -91,9 +105,9 @@ class ShowWishlist extends Component {
             </ListItem>
         </List>
         {events}
-        <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Event</Button></Link>
+        <AddEvent wishlistId={this.state.wishlistId} setEvents={this.setEvents} />
         {items}   
-        <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Item</Button></Link>
+        <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems}/>
 			</div>
 		);
 	}
