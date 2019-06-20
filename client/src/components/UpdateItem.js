@@ -63,24 +63,18 @@ render(){
             <TextField
             name="name"
             type="text"
-            id="tf-outlined" 
-            class="mdc-text-field__input"
             placeholder="Name"
             value={this.state.name}
             />
             <TextField
             name="price"
-            type="number"
-            id="tf-outlined" 
-            class="mdc-text-field__input"
+            type="number"   
             placeholder="Price"
             value={this.state.price}
             />
             <TextField
             name="link"
-            type="text"
-            id="tf-outlined" 
-            class="mdc-text-field__input"
+            type="text"  
             placeholder="Link"
             value={this.state.link}
             />

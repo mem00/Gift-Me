@@ -60,16 +60,14 @@ render(){
             <TextField
             name="name"
             type="text"
-            id="tf-outlined" 
-            class="mdc-text-field__input"
+            fullWidth = "true"
             placeholder="Name"
             value={this.state.name}
             />
             <TextField
             name="date"
             type="text"
-            id="tf-outlined" 
-            class="mdc-text-field__input"
+            fullWidth = "true"
             placeholder="Date"
             value={this.state.date}
             />
