@@ -15,11 +15,10 @@ function Home() {
       return(
         <div>
           <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography>
-          <CardContent>
             <div className="top-flex">
               <Card>
                 <CardContent>
-                  <Typography className="main-wrapper" id="create-wrapper">
+                  <Typography >
                     <CreateWishlist />
                   </Typography>
                 </CardContent>

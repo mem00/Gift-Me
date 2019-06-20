@@ -3,10 +3,7 @@ import axios from 'axios'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+
 
 class CreateWishlistForm extends Component {
     constructor(props) {
@@ -41,20 +38,17 @@ class CreateWishlistForm extends Component {
     }
     render() {
         return(
-            <div className="wishlist-wrapper">
+            <div>
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
-                <h1><Button type='submit' variant="text" color="primary">Create Wishlist</Button></h1>
-            <List>
-                <ListItem>
-                    <ListItemText 
+                    <h1><Button type='submit' variant="text" color="primary">Create Wishlist</Button></h1>
+                    <TextField
+                    id="tf-outlined"
+                    class="mdc-text-field__input"
                     variant="outlined"
                     name='wishlistTitle' 
                     placeholder= 'Wishlist Title'
-                    primary={this.state.wishlistTitle}                 
+                    value={this.state.wishlistTitle}                          
                    />
-                   </ListItem>
-                </List>
-
                 </form>
             </div>
         )
