@@ -221,6 +221,9 @@ width:300px;
   display:flex;
   flex-direction:column;
   border:1px solid blue;
+  width: 500px;
+  height:500px;
+  margin:0 auto;
   
 }
 

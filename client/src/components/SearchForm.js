@@ -80,14 +80,15 @@ this.setState({//storing input to reuse it
             <div>
                 {this.state.wishlistArray.map((wishlist)=>{
                   return <Link key={wishlist.id} to={`/wishlist/${wishlist.id}`}> <ListItem>
-                  <ListItemText label="Wish List Name" primary={wishlist.title}/></ListItem> </Link>
+                  <ListItemText primary={wishlist.title}/></ListItem> </Link>
                 })}
               </div>
           </List>
         </div>
         :
         this.state.searchAttempted &&
-         <Button color="primary" >Not a member</Button>
+        <ListItem>
+         <ListItemText color="primary" />Not a member</ListItem>
 
     return (
 
