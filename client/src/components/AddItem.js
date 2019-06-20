@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Modal from 'react-modal'
 
+const initURL = "https://"
 
 const customStyles = {
     content : {
@@ -23,7 +24,7 @@ class AddItem extends Component {
         this.state = {
             name: "",
             price: "",
-            link: "",
+            link: "https://",
             showModal: false
         }
         this.handleChange=this.handleChange.bind(this)
@@ -32,6 +33,7 @@ class AddItem extends Component {
         this.handleOpenModal=this.handleOpenModal.bind(this)
         }
     handleChange(event){
+        event.preventDefault()
         const name = event.target.name;
         const value = event.target.value;
 
