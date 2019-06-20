@@ -43,7 +43,7 @@ class FindOrCreateUser extends Component {
         return(
             <div>
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
-                    <div class="searchName">
+                    <div class="search-name">
                     <Button className="button" type='submit' variant="text" color="primary">Login/Signup</Button>
                    </div>
                    <TextField

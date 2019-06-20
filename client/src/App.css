@@ -50,11 +50,11 @@ body{
   text-align:center;
   
   /* border:1px solid blue; */
-  margin-top:60px;
-  color:#336B87;
+  margin-top:100px;
+  color:purple;
   font-style:italic;
   height:50px;
-  margin:15px;
+  font-size:70px;
 
 }
 
@@ -63,7 +63,9 @@ body{
 .MuiTypography-body1{
  
 }
-
+.search-name{
+  text-align:center;
+}
 
 .h-one{
   text-align:center;
@@ -103,8 +105,8 @@ i.material.md-24{
 .last{
   display:flex;
   flex-direction:row;
-  
   justify-content:center;
+  width:230px;
   
 }
 .item-wrapper{
@@ -116,6 +118,12 @@ i.material.md-24{
 .event-icon-wrapper{
   padding-top:15px;
   padding-right:10px;
+  display:flex;
+  flex-direction:row;
+}
+.icon-wrapper{
+  display:flex;
+  flex-direction: row;
 }
 
 
@@ -139,3 +147,10 @@ padding:20px;
   border:1px solid blue;
   height:200px;
 } */
+
+.MuiTypography-root.MuiListItemText-primary{
+  font-size:30px;
+  font-weight:600;
+
+
+}
