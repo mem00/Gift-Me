@@ -3,7 +3,6 @@ import CreateWishlistForm from './CreateWishlistForm'
 import FindOrCreateUser from './FindOrCreateUser'
 import { Redirect } from 'react-router-dom'
 
-
 class CreateWishlist extends Component {
     constructor(props){
         super(props)
