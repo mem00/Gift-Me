@@ -8,13 +8,13 @@ import CardContent from '@material-ui/core/CardContent';
 
 import Typography from '@material-ui/core/Typography';
 
+
 import {makeStyles} from '@material-ui/styles'
+import logo from '../images/giphy.gif'
 
 const clear = makeStyles({
   root: {
-
-      height: '220px',
-     
+      height: '220px' 
   }
 })
 
@@ -24,18 +24,19 @@ function Home() {
         <div>
           <h1 className="top-title" >Gift me</h1>
             <div className="top-flex">
-              <Card className={classes.root}> 
+              <Card className={classes.root}>        
                 <CardContent>
                   <Typography >
                     <CreateWishlist />
                   </Typography>
                 </CardContent>
               </Card>
-              <Card>
-                <CardContent>
-                          
+              <img src={logo} height="10%" width="10%"></img>
+              <Card>    
+                <CardContent>              
+                  <Typography>          
                     <Search />
-                 
+                  </Typography>
                 </CardContent>
               </Card>
             </div> 

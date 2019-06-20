@@ -3,6 +3,21 @@ import axios from "axios";
 import {Redirect} from "react-router-dom"
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
+import MaterialIcon from 'material-icons-react';
+import Modal from 'react-modal'
+
+
+
+const customStyles = {
+  content : {
+    top                   : '25%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 class  UpdateEvent extends Component  {
   constructor(){
@@ -10,14 +25,16 @@ class  UpdateEvent extends Component  {
     this.state = {
       name: "",
       date: "",
-      redirect: false
+      showModal: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCloseModal=this.handleCloseModal.bind(this)
+    this.handleOpenModal=this.handleOpenModal.bind(this)
   }
 
   async componentDidMount(){
-    const response = await axios.get(`/event/${this.props.location.state.eventId}`)
+    const response = await axios.get(`/event/${this.props.eventId}`)
     const event = response.data.event;
     this.setState({
       name: event.name,
@@ -37,20 +54,40 @@ class  UpdateEvent extends Component  {
   async handleSubmit(event){
     try{
     event.preventDefault();
-    await axios.put(`/event/update/${this.props.location.state.eventId}`, {
+    await axios.put(`/event/update/${this.props.eventId}`, {
         name: this.state.name,
         date: this.state.date
     })
+    const response = await axios.get(`/event/wishlist/${this.props.wishlistId}`)
+    this.props.setEvents(response.data.events)
     this.setState({
-        redirect:true
+        showModal:false
     })
     }
     catch(err) {
         console.log(err.message)
     }
 }
+
+handleOpenModal(){
+  let showModal = true;
+  this.setState({showModal});
+}
+
+handleCloseModal(){
+  this.setState({showModal : false});
+}
+
 render(){
     return (
+      <div>
+      <MaterialIcon icon="edit" onClick={this.handleOpenModal} />
+      <Modal
+            ariaHideApp={false}
+            isOpen={this.state.showModal}
+            contentLabel="onRequestClose "
+            onRequestClose={this.handleCloseModal}
+            style = {customStyles}>
         <div>
         {this.state.redirect ? <Redirect to={`/wishlist/${this.props.location.state.wishlistId}`}/>:null}
         <form
@@ -80,6 +117,8 @@ render(){
             <Button variant="text" type="submit" color="primary">
                 Update Event</Button>
         </form></div>
+        </Modal>
+        </div>
         )
     }
 }

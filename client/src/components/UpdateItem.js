@@ -3,6 +3,21 @@ import axios from "axios";
 import {Redirect} from "react-router-dom"
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
+import MaterialIcon from 'material-icons-react';
+import Modal from 'react-modal'
+
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
+
+
 
 
 class  UpdateItem extends Component  {
@@ -12,14 +27,16 @@ class  UpdateItem extends Component  {
       name: "",
       price: "",
       link: "",
-      redirect: false
+      showModal: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCloseModal=this.handleCloseModal.bind(this)
+    this.handleOpenModal=this.handleOpenModal.bind(this)
   }
 
   async componentDidMount(){
-    const response = await axios.get(`/item/${this.props.location.state.itemId}`)
+    const response = await axios.get(`/item/${this.props.itemId}`)
     const item = response.data.item;
     this.setState({
       name: item.name,
@@ -29,6 +46,7 @@ class  UpdateItem extends Component  {
   }
 
   handleChange(event){
+    event.preventDefault()
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
@@ -39,21 +57,41 @@ class  UpdateItem extends Component  {
   async handleSubmit(event){
     try{
     event.preventDefault();
-    await axios.put(`/item/update/${this.props.location.state.itemId}`, {
+    await axios.put(`/item/update/${this.props.itemId}`, {
         name: this.state.name,
         price: this.state.price,
         link: this.state.link
     })
+    const response = await axios.get(`/item/wishlist/${this.props.wishlistId}`)
+    this.props.setItems(response.data.items)
     this.setState({
-        redirect:true
+        showModal:false
     })
     }
     catch(err) {
         console.log(err.message)
     }
 }
+
+
+handleOpenModal(){
+  let showModal = true;
+  this.setState({showModal});
+}
+
+handleCloseModal(){
+  this.setState({showModal : false});
+}
 render(){
     return (
+        <div>
+          <MaterialIcon icon="edit" onClick={this.handleOpenModal} />
+          <Modal
+                ariaHideApp={false}
+                isOpen={this.state.showModal}
+                contentLabel="onRequestClose "
+                onRequestClose={this.handleCloseModal}
+                style = {customStyles}>
         <div>
         {this.state.redirect ? <Redirect to={`/wishlist/${this.props.location.state.wishlistId}`}/>:null}
         <form
@@ -86,10 +124,13 @@ render(){
             type="text"  
             placeholder="Link"
             value={this.state.link}
+            src = {this.state.link}
             />
             <Button variant="text" type="submit" color="primary">
                 Update Item</Button>
         </form></div>
+        </Modal>
+        </div>
         )
     }
 }
