@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
 
+
+
 class  UpdateItem extends Component  {
   constructor(){
     super();
@@ -29,6 +31,7 @@ class  UpdateItem extends Component  {
   }
 
   handleChange(event){
+    event.preventDefault()
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
@@ -86,6 +89,7 @@ render(){
             type="text"  
             placeholder="Link"
             value={this.state.link}
+            src = {this.state.link}
             />
             <Button variant="text" type="submit" color="primary">
                 Update Item</Button>
