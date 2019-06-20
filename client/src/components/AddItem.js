@@ -1,9 +1,21 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Modal from 'react-modal'
+
+
+const customStyles = {
+    content : {
+      top                   : '50%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+  };
+  
 
 
 class AddItem extends Component {
@@ -65,12 +77,12 @@ class AddItem extends Component {
             <div>
             <Button variant = "contained" onClick={this.handleOpenModal}>Add Item</Button>
             <Modal
-            ariaHideApp={false}
-            isOpen={this.state.showModal}
-            contentLabel="onRequestClose "
-            onRequestClose={this.handleCloseModal}>
+                ariaHideApp={false}
+                isOpen={this.state.showModal}
+                contentLabel="onRequestClose "
+                onRequestClose={this.handleCloseModal}
+                style = {customStyles}>
             <div>
-            {/* {this.state.redirect ? <Redirect to={`/wishlist/${this.props.location.state.wishlistId}`}/>:null} */}
             <form
             onChange={this.handleChange}
             onSubmit={this.handleSubmit}

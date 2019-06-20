@@ -100,7 +100,6 @@ class ShowWishlist extends Component {
         <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Event</Button></Link>
         {items}   
         <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems}/>
-        {/* <Link to={{pathname: '/add-item', state: { modal: true, wishlistId : this.state.wishlistId}}}><Button color="primary">Add Item</Button></Link> */}
 			</div>
 		);
 	}
