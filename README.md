@@ -37,14 +37,14 @@ Also add a feature in item table for the buyer to leave a msg to the person they
 | --- | :---: |  :---: | :---: |
 | Backend | H | 8hrs| N/A |
 | Frontend| H | 8hrs| N/A |
-| Styling| M | 5hrs| N/A |
+| Styling| M | 7hrs| N/A |
 | Total | H | 21hrs| NA |
 
 
 |  Day | Deliverable | Status
 |---|---| ---|
 |Day 1| Project Description | Complete
-|Day 2| Pitch and Backend| Incomplete
-|Day 3| Frontend | Incomplete
-|Day 4| Styling and MVP| Incomplete
+|Day 2| Pitch and Backend| Complete
+|Day 3| Frontend | Complete
+|Day 4| Styling and MVP| Complete
 |Day 5| Present  | Incomplete
