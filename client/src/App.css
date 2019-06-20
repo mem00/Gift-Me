@@ -230,4 +230,51 @@ width:300px;
   margin:0 auto;
   
 }
+.MuiListItemText-root{
+  text-align:center;
+}
+i.material.md-24{
+  margin:0px;
+  border:1px solid yellow;
 
+}
+.last{
+  display:flex;
+  flex-direction:row;
+  border:1px solid blue;
+  justify-content:center;
+  
+}
+.item-wrapper{
+  border:1px solid red;
+  display:flex;
+  justify-content:space-between;
+  padding:10px;
+
+}
+.event-icon-wrapper{
+  padding-top:15px;
+  padding-right:10px;
+}
+.MuiButton-label{
+  border:1px solid pink;
+  
+}
+.event-button{
+  border:1px solid black;
+}
+.MuiButtonBase-root.MuiButton-root.event-button.MuiButton-contained{
+  
+}
+.event-wrapper{
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+
+
+}
+.home-icon{
+text-align:right;
+padding:20px;
+
+}

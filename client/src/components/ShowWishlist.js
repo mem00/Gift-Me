@@ -62,26 +62,29 @@ class ShowWishlist extends Component {
 	render() {
     const events = this.state.events.map(event=>{
       return (
-      <div key={event.id}>
+      <div key={event.id} className="last">
         <h5>{event.name}{"      "}{event.date}</h5>
+      <div className="event-icon-wrapper">
       <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
         <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link> 
-      </div>)
+      </div></div>)
     })
     const items = this.state.items.map(item=>{
       return (
       <div key={item.id}>         
-        <h4>
+        <h4 className="item-wrapper">
+        
         <div>{item.name}{"      "}{"$"}{item.price}{"      "}
         <a target="_blank"  rel="noopener noreferrer" href={item.link}>Link</a>
-        </div></h4><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
-        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>     
-      </div>)
+        </div><div className="icon-wrapper"><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
+        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link> </div>   
+      </h4></div>)
     })
 		return (
 			<div className="wishlist-wrapper">
-        {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
+            <div className="home-icon">
         <Link to="/"><MaterialIcon  icon = "home"/></Link>
+        </div>
         <List>
             <ListItem>
             <ListItemText primary={this.state.personName}/>
@@ -90,13 +93,19 @@ class ShowWishlist extends Component {
             <ListItemText primary={this.state.wishlistTitle}/>
             </ListItem>
         </List>
+        
+            <div className="event-wrapper">
+        {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
         {events}
-        <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Event</Button></Link>
+        
+        <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button variant="contained" className="event-button">Add Event</Button></Link>
+        </div>
         {items}   
-        <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Item</Button></Link>
+        <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><Button variant="contained">Add Item</Button></Link>
 			</div>
 		);
 	}
 }
+
 
 export default ShowWishlist;
