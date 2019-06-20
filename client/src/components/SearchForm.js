@@ -7,6 +7,9 @@ import Button from '@material-ui/core/Button';
 import clsx from 'clsx';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+
 
 
 
@@ -74,7 +77,8 @@ this.setState({//storing input to reuse it
               </div>
         </div>
         :
-        this.state.searchAttempted && <div>nobody home</div>
+        this.state.searchAttempted &&
+         <Button color="primary" >Not a member</Button>
 
     return (
 
