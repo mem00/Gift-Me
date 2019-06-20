@@ -79,22 +79,15 @@ this.setState({//storing input to reuse it
          <Button color="primary" >Not a member</Button>
 
     return (
-
-    <div className="search-wrapper">
-       
-
-     <Button color="primary" className="button"  onClick={this.getData}>Give a Gift</Button>
+    <form onSubmit={this.getData} >
+      <div className="search-wrapper">
+      <Button type="submit" color="primary" className="button" >Give a Gift</Button>
     
-     <TextField name="email" type="text" placeholder="Search by email" onChange={this.updateInput}margin="normal"
-        variant="outlined"/>
-        
-    
-
-   
-    {userInfo}
-     
-   
-    </div>
+      <TextField name="email" type="text" placeholder="Search by email" onChange={this.updateInput}margin="normal"
+        variant="outlined"/> 
+      {userInfo}  
+      </div>
+    </form>
       
     )
     
