@@ -61,18 +61,27 @@ render(){
         onSubmit={this.handleSubmit}
         >
             <TextField
+            id="tf-outlined"
+            class="mdc-text-field__input"
+            variant= "outlined"
             name="name"
             type="text"
             placeholder="Name"
             value={this.state.name}
             />
             <TextField
+            id="tf-outlined"
+            class="mdc-text-field__input"
+            variant= "outlined"
             name="price"
             type="number"   
             placeholder="Price"
             value={this.state.price}
             />
             <TextField
+            id="tf-outlined"
+            class="mdc-text-field__input"
+            variant= "outlined"
             name="link"
             type="text"  
             placeholder="Link"

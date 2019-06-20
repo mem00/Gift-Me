@@ -50,6 +50,9 @@ class AddItem extends Component {
             onSubmit={this.handleSubmit}
             >
                 <TextField
+                id="tf-outlined"
+                class="mdc-text-field__input"
+                variant= "outlined"
                 name="name"
                 type="text"
                 fullWidth = "true"
@@ -57,6 +60,9 @@ class AddItem extends Component {
                 value={this.state.name}
                 />
                 <TextField
+                id="tf-outlined"
+                class="mdc-text-field__input"
+                variant= "outlined"
                 name="price"
                 type="number"
                 fullWidth = "true"
@@ -64,6 +70,9 @@ class AddItem extends Component {
                 value={this.state.price}
                 />
                 <TextField
+                id="tf-outlined"
+                class="mdc-text-field__input"
+                variant= "outlined"
                 name="link"
                 type="text"
                 fullWidth = "true"

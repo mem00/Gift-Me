@@ -43,6 +43,9 @@ class AddEvent extends Component {
                 onSubmit={this.handleSubmit}
                 >
                 <TextField
+                id="tf-outlined"
+                class="mdc-text-field__input"
+                variant= "outlined"
                 name="name"
                 type="text"
                 fullWidth = "true"
@@ -50,6 +53,9 @@ class AddEvent extends Component {
                 value={this.state.name}
                 />
                     <TextField
+                id="tf-outlined"
+                class="mdc-text-field__input"
+                variant= "outlined"
                 name="date"
                 type="date"
                 fullWidth = "true"
