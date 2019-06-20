@@ -91,7 +91,7 @@ class ShowWishlist extends Component {
 			<div className="wishlist-wrapper">
         {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
 
-        <Link to="/"><MaterialIcon icon="home" color ="purple" /> 
+        <Link to="/"><MaterialIcon icon="home" color ="purple" /> </Link>
         <TextField label= "Name" value={this.state.personName}/>      
         <TextField label="Wish List" value={this.state.wishlistTitle}/>       
         {events}
