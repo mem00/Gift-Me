@@ -3,6 +3,19 @@ import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
+import Modal from 'react-modal'
+
+
+const customStyles = {
+    content : {
+      top                   : '25%',
+      left                  : '50%',
+      right                 : 'auto',
+      bottom                : 'auto',
+      marginRight           : '-50%',
+      transform             : 'translate(-50%, -50%)'
+    }
+  };
 
 class AddEvent extends Component {
     constructor(){
@@ -10,10 +23,12 @@ class AddEvent extends Component {
         this.state = {
             name: "",
             date: "",
-            redirect: false
+            showModal: false
         }
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
+        this.handleCloseModal=this.handleCloseModal.bind(this)
+        this.handleOpenModal=this.handleOpenModal.bind(this)
         }
         handleChange(event){
             const name = event.target.name;
@@ -26,16 +41,35 @@ class AddEvent extends Component {
         async handleSubmit(event){
             event.preventDefault();
 
-            await axios.post(`/event/create/${this.props.location.state.wishlistId}`, {
+            await axios.post(`/event/create/${this.props.wishlistId}`, {
                 name: this.state.name,
                 date:this.state.date,        
             })
+            const response = await axios.get(`/event/wishlist/${this.props.wishlistId}`)
+            this.props.setEvents(response.data.events)
             this.setState({
-                redirect:true
+            showModal:false
             })
+        }
+
+        handleOpenModal(){
+            let showModal = true;
+            this.setState({showModal});
+        }
+    
+        handleCloseModal(){
+            this.setState({showModal : false});
         }
         render(){
             return (
+                <div>
+                <Button variant = "contained" color="primary" onClick={this.handleOpenModal}>Add Event</Button>
+                <Modal
+                ariaHideApp={false}
+                isOpen={this.state.showModal}
+                contentLabel="onRequestClose "
+                onRequestClose={this.handleCloseModal}
+                style = {customStyles}>
                 <div>
                 {this.state.redirect ?  <Redirect to={`/wishlist/${this.props.location.state.wishlistId}`}/>:null}
                 <form
@@ -63,6 +97,8 @@ class AddEvent extends Component {
                 <Button variant="text" type="submit" color="primary">
                 Add Event</Button>
                 </form></div>
+                </Modal>
+                </div>
             )
         }
     }

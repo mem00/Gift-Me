@@ -17,7 +17,6 @@ const customStyles = {
   };
   
 
-
 class AddItem extends Component {
     constructor(props){
         super(props);
@@ -25,7 +24,6 @@ class AddItem extends Component {
             name: "",
             price: "",
             link: "",
-            redirect: false,
             showModal: false
         }
         this.handleChange=this.handleChange.bind(this)
@@ -52,7 +50,6 @@ class AddItem extends Component {
         const response = await axios.get(`/item/wishlist/${this.props.wishlistId}`)
         this.props.setItems(response.data.items)
         this.setState({
-            redirect:true,
             showModal:false
         })
        
@@ -75,7 +72,7 @@ class AddItem extends Component {
     render(){
         return (
             <div>
-            <Button variant = "contained" onClick={this.handleOpenModal}>Add Item</Button>
+            <Button variant = "contained" color="primary" onClick={this.handleOpenModal}>Add Item</Button>
             <Modal
                 ariaHideApp={false}
                 isOpen={this.state.showModal}
@@ -114,7 +111,7 @@ class AddItem extends Component {
                 placeholder="Link"
                 value={this.state.link}
                 />
-                 <Button variant="text" type="submit" color="primary">
+                 <Button variant="text" color="primary" type="submit">
                 Add Item</Button>
                 
             </form></div>
