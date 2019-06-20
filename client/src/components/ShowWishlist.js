@@ -103,7 +103,7 @@ class ShowWishlist extends Component {
         </div>
         <List>
             <ListItem>
-            <ListItemText primary={this.state.personName}/>
+            <ListItemText primary={this.state.personName} className="wow"/>
             </ListItem>
             <ListItem>
             <ListItemText primary={this.state.wishlistTitle}/>
