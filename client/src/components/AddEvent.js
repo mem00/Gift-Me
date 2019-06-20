@@ -45,13 +45,15 @@ class AddEvent extends Component {
                 <TextField
                 name="name"
                 type="text"
-                placeholder="NAME OF EVENT"               
+                fullWidth = "true"
+                placeholder="Name of Event"               
                 value={this.state.name}
                 />
                     <TextField
                 name="date"
                 type="date"
-                placeholder="DATE"
+                fullWidth = "true"
+                placeholder="Date"
                 value={this.state.date}
                 />
                 <Button variant="text" type="submit" color="primary">

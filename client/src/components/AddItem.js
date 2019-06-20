@@ -52,21 +52,21 @@ class AddItem extends Component {
                 <TextField
                 name="name"
                 type="text"
-               
+                fullWidth = "true"
                 placeholder="Name"
                 value={this.state.name}
                 />
                 <TextField
                 name="price"
                 type="number"
-              
+                fullWidth = "true"
                 placeholder="Price"
                 value={this.state.price}
                 />
                 <TextField
                 name="link"
                 type="text"
-               
+                fullWidth = "true"
                 placeholder="Link"
                 value={this.state.link}
                 />

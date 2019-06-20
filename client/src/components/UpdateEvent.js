@@ -60,12 +60,14 @@ render(){
             <TextField
             name="name"
             type="text"
+            fullWidth = "true"
             placeholder="Name"
             value={this.state.name}
             />
             <TextField
             name="date"
             type="text"
+            fullWidth = "true"
             placeholder="Date"
             value={this.state.date}
             />

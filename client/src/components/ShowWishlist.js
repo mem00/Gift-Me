@@ -1,13 +1,15 @@
 //have to add another route to get the event
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Redirect, Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import clsx from 'clsx';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import Link from '@material-ui/core/Link';
+import { spacing } from '@material-ui/system';
 
 class ShowWishlist extends Component {
 	constructor() {
@@ -63,28 +65,25 @@ class ShowWishlist extends Component {
     const events = this.state.events.map(event=>{
       return (
       <div key={event.id}>
-        {/* <TextField value={event.name}/><Button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</Button>
-        <TextField value={event.date}/> */}
-        <h5>{event.name}<MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon></h5>
+        <h5>{event.name}{"      "}
+      {event.date}</h5>
+      <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
         <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link>
-        <h5>{event.date}</h5>
       </div>)
     })
     const items = this.state.items.map(item=>{
       return (
       <div key={item.id}>
+        
+       
 
-        {/* <TextField label="Item" value={item.name}/><Button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</Button>
-        <TextField label="Price" value={item.price}/> */}
-        {/* <TextField label="Link" value={item.link}/> */}
-        <Button href="#text-buttons" value={item.link}>
+        <h4>
+        <div>{item.name}{"      "}{"$"}{item.price}{"      "}
+        <Link target="_blank" rel="noreferrer" rel="noopener" href={item.link}>
         Link
-      </Button>
-        <h4>{item.name}<MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
+      </Link>
+        </div></h4><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
         <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>
-        </h4>
-        <h4>{item.price}</h4>
-        <h4>{item.link}</h4>
       </div>)
     })
 		return (

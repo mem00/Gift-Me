@@ -45,8 +45,12 @@
 }
 #create-wrapper{
   /* border:1px solid blue; */
+}  
+/* .price-wrapper{
+display: flex;
+flex-direction: row;
+} */
 
-}
 body{
   font-family: 'Satisfy', cursive;
   /* background-image:url("https://res.cloudinary.com/db77zoxry/image/upload/v1560914775/leone-venter-469710-unsplash.jpg"); */
