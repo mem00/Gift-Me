@@ -45,17 +45,13 @@ class AddEvent extends Component {
                 <TextField
                 name="name"
                 type="text"
-                placeholder="NAME OF EVENT"
-                id="tf-outlined" 
-                class="mdc-text-field__input"
+                placeholder="NAME OF EVENT"               
                 value={this.state.name}
                 />
                     <TextField
                 name="date"
                 type="date"
                 placeholder="DATE"
-                id="tf-outlined" 
-                class="mdc-text-field__input"
                 value={this.state.date}
                 />
                 <Button variant="text" type="submit" color="primary">

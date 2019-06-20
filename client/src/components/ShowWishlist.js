@@ -63,8 +63,8 @@ class ShowWishlist extends Component {
     const events = this.state.events.map(event=>{
       return (
       <div key={event.id}>
-        <TextField value={event.name}/><Button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</Button>
-        <TextField value={event.date}/>
+        {/* <TextField value={event.name}/><Button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</Button>
+        <TextField value={event.date}/> */}
         <h5>{event.name}<MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon></h5>
         <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link>
         <h5>{event.date}</h5>
@@ -74,8 +74,8 @@ class ShowWishlist extends Component {
       return (
       <div key={item.id}>
 
-        <TextField label="Item" value={item.name}/><Button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</Button>
-        <TextField label="Price" value={item.price}/>
+        {/* <TextField label="Item" value={item.name}/><Button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</Button>
+        <TextField label="Price" value={item.price}/> */}
         {/* <TextField label="Link" value={item.link}/> */}
         <Button href="#text-buttons" value={item.link}>
         Link

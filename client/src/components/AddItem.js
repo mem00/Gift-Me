@@ -52,27 +52,25 @@ class AddItem extends Component {
                 <TextField
                 name="name"
                 type="text"
-                id="tf-outlined" 
-                class="mdc-text-field__input"
+               
                 placeholder="Name"
                 value={this.state.name}
                 />
                 <TextField
                 name="price"
                 type="number"
-                id="tf-outlined" 
-                class="mdc-text-field__input"
+              
                 placeholder="Price"
                 value={this.state.price}
                 />
                 <TextField
                 name="link"
                 type="text"
-                id="tf-outlined" 
-                class="mdc-text-field__input"
+               
                 placeholder="Link"
                 value={this.state.link}
-                /> <Button variant="text" type="submit" color="primary">
+                />
+                 <Button variant="text" type="submit" color="primary">
                 Add Item</Button>
                 
             </form></div>
