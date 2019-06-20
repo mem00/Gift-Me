@@ -78,8 +78,7 @@ class ShowWishlist extends Component {
       return (
       <div key={event.id}>
         <h5>{event.name}{"      "}{event.date}</h5>
-      <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
-        {/* <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link>  */}
+        <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
         <UpdateEvent eventId={event.id} wishlistId={this.state.wishlistId} setEvents={this.setEvents}/>
       </div>)
     })
@@ -90,7 +89,6 @@ class ShowWishlist extends Component {
         <div>{item.name}{"      "}{"$"}{item.price}{"      "}
         <a target="_blank"  rel="noopener noreferrer" href={item.link}>Link</a>
         </div></h4><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
-        {/* <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>      */}
         <UpdateItem itemId={item.id} wishlistId={this.state.wishlistId} setItems={this.setItems}/>
       </div>)
     })
