@@ -23,6 +23,7 @@ function Home() {
       return(
         <div>
           <h1 className="top-title" >Gift me</h1>
+          <img className="img-center" alt= "gift" src={logo} height="10%" width="10%"></img>
             <div className="top-flex">
               <Card className={classes.root}>        
                 <CardContent>
@@ -31,7 +32,7 @@ function Home() {
                   </Typography>
                 </CardContent>
               </Card>
-              <img src={logo} height="10%" width="10%"></img>
+             
               <Card>    
                 <CardContent>              
                   <Typography>          
