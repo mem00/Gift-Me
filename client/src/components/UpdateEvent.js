@@ -58,6 +58,9 @@ render(){
         onSubmit={this.handleSubmit}
         >
             <TextField
+            id="tf-outlined"
+            class="mdc-text-field__input"
+            variant= "outlined"
             name="name"
             type="text"
             fullWidth = "true"
@@ -65,6 +68,9 @@ render(){
             value={this.state.name}
             />
             <TextField
+            id="tf-outlined"
+            class="mdc-text-field__input"
+            variant= "outlined"
             name="date"
             type="text"
             fullWidth = "true"

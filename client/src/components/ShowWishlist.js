@@ -1,14 +1,12 @@
 //have to add another route to get the event
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import {Redirect, Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import clsx from 'clsx';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
-import Link from '@material-ui/core/Link';
+import MaterialIcon from 'material-icons-react';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 
 class ShowWishlist extends Component {
@@ -65,9 +63,7 @@ class ShowWishlist extends Component {
     const events = this.state.events.map(event=>{
       return (
       <div key={event.id}>
-
-        <h5>{event.name}{"      "}
-      {event.date}</h5>
+        <h5>{event.name}{"      "}{event.date}</h5>
       <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
         <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link> 
       </div>)
@@ -77,9 +73,7 @@ class ShowWishlist extends Component {
       <div key={item.id}>         
         <h4>
         <div>{item.name}{"      "}{"$"}{item.price}{"      "}
-        <Link target="_blank" rel="noreferrer" rel="noopener" href={item.link}>
-        Link
-      </Link>
+        <a target="_blank"  rel="noopener noreferrer" href={item.link}>Link</a>
         </div></h4><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
         <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>     
       </div>)
@@ -87,9 +81,15 @@ class ShowWishlist extends Component {
 		return (
 			<div className="wishlist-wrapper">
         {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
-        <Link to="/"><Button  color="primary">Home</Button></Link>
-        <TextField label= "Name" value={this.state.personName}/>      
-        <TextField label="Wish List" value={this.state.wishlistTitle}/>
+        <Link to="/"><MaterialIcon  icon = "home"/></Link>
+        <List>
+            <ListItem>
+            <ListItemText primary={this.state.personName}/>
+            </ListItem>
+            <ListItem>
+            <ListItemText primary={this.state.wishlistTitle}/>
+            </ListItem>
+        </List>
         {events}
         <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Event</Button></Link>
         {items}   

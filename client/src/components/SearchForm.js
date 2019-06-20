@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import {Link, Redirect} from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import {Link} from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
-import clsx from 'clsx';
-import MenuItem from '@material-ui/core/MenuItem';
+
 import TextField from '@material-ui/core/TextField';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
+
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 
@@ -69,7 +66,6 @@ this.setState({//storing input to reuse it
         <div>
           <List>
             <ListItem>
-            {/* </ListItem>label= "Name"  */}
             <ListItemText primary={this.state.name}/>
             </ListItem>
             <ListItem>
