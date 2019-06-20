@@ -19,8 +19,8 @@ function Home() {
         <Card className="card">
         <CardContent>
         {/* <CardContent> */}
-        <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography>
-
+        {/* <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography> */}
+<h1 className="h-one">Gift me</h1>
 
           <div className="top-flex">
         
