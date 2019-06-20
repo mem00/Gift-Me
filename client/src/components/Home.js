@@ -7,8 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 import Typography from '@material-ui/core/Typography';
-
-
+import logo from '../images/giphy.gif'
 
 function Home() {
 
@@ -16,6 +15,7 @@ function Home() {
         <div>
           <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography>
             <div className="top-flex">
+           
               <Card>
                 <CardContent>
                   <Typography >
@@ -23,8 +23,11 @@ function Home() {
                   </Typography>
                 </CardContent>
               </Card>
+              <img src={logo} height="10%" width="10%"></img>
               <Card>
+            
                 <CardContent>
+              
                   <Typography>           
                     <Search />
                   </Typography>

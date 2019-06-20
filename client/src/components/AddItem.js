@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
+const initURL = "https://"
 
 class AddItem extends Component {
     constructor(){
@@ -11,13 +12,14 @@ class AddItem extends Component {
         this.state = {
             name: "",
             price: "",
-            link: "",
+            link: "https://",
             redirect: false
         }
         this.handleChange=this.handleChange.bind(this)
         this.handleSubmit=this.handleSubmit.bind(this)
         }
     handleChange(event){
+        event.preventDefault()
         const name = event.target.name;
         const value = event.target.value;
 
