@@ -114,6 +114,7 @@ class ShowWishlist extends Component {
         {events}        
          <AddEvent wishlistId={this.state.wishlistId} setEvents={this.setEvents} />
          </div>
+         <br/>
          {items}   
          <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems}/>
 			</div>
