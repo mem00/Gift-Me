@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
 
+
 class CreateWishlistForm extends Component {
     constructor(props) {
         super(props)
@@ -39,14 +40,15 @@ class CreateWishlistForm extends Component {
         return(
             <div>
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
-                <h1><Button type='submit' variant="text" color="primary">Create Wishlist</Button></h1>
-                   <TextField
+                    <h1><Button type='submit' variant="text" color="primary">Create Wishlist</Button></h1>
+                    <TextField
+                    id="tf-outlined"
+                    class="mdc-text-field__input"
                     variant="outlined"
                     name='wishlistTitle' 
                     placeholder= 'Wishlist Title'
-                    value={this.state.wishlistTitle}                 
+                    value={this.state.wishlistTitle}                          
                    />
-
                 </form>
             </div>
         )

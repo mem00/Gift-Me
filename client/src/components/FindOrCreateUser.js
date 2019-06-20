@@ -43,8 +43,12 @@ class FindOrCreateUser extends Component {
         return(
             <div>
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
-                   <h1><Button type='submit' variant="text" color="primary">Login</Button></h1>
+                    <div class="searchName">
+                    <Button className="button" type='submit' variant="text" color="primary">Login/Signup</Button>
+                   </div>
                    <TextField
+                    id="tf-outlined"
+                    class="mdc-text-field__input"
                     variant="outlined"
                     type='text'
                     name='userName' 
@@ -52,6 +56,8 @@ class FindOrCreateUser extends Component {
                     value={this.state.userName}                 
                    />
                    <TextField
+                    id="tf-outlined"
+                    class="mdc-text-field__input"
                     variant="outlined"
                     type='text'
                     name='userEmail' 
@@ -59,7 +65,6 @@ class FindOrCreateUser extends Component {
                     value={this.state.userEmail}                 
                    />
                 </form>
-
             </div>
         )
     }

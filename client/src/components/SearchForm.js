@@ -10,6 +10,10 @@ import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 
 
 
@@ -50,8 +54,6 @@ async getData(event){
         wishlistArray:[]
     })
 
-
-
 }
 
 updateInput(event){
@@ -65,40 +67,40 @@ this.setState({//storing input to reuse it
   render() {
     const userInfo = this.state.email ?
         <div>
-            <TextField 
-            label= "Name" value={this.state.name}/>
-            <TextField
-            label="Email" value={this.state.email && this.state.email}/>
+          <List>
+            <ListItem>
+            {/* </ListItem>label= "Name"  */}
+            <ListItemText primary={this.state.name}/>
+            </ListItem>
+            <ListItem>
+            <ListItemText primary={this.state.email && this.state.email}/>
+            </ListItem>
             <div>
                 {this.state.wishlistArray.map((wishlist)=>{
-                  return <Link key={wishlist.id} to={`/wishlist/${wishlist.id}`}> <TextField 
-                  label="Wish List Name" value={wishlist.title}/> </Link>
+                  return <Link key={wishlist.id} to={`/wishlist/${wishlist.id}`}> <ListItem>
+                  <ListItemText primary={wishlist.title}/></ListItem> </Link>
                 })}
               </div>
+          </List>
         </div>
         :
         this.state.searchAttempted &&
-         <Button color="primary" >Not a member</Button>
+        <ListItem>
+         <ListItemText color="primary" />Not a member</ListItem>
 
     return (
-
-    <div className="search-wrapper">
-       
-
-     <Button color="primary" className="button"  onClick={this.getData}>Give a Gift</Button>
+    <form onSubmit={this.getData} >
+      <div className="search-wrapper">
+      <Button type="submit" color="primary" className="button" >Give a Gift</Button>
     
-     <TextField name="email" type="text" placeholder="Search by email" onChange={this.updateInput}margin="normal"
-        variant="outlined"/>
-        
-    
-
-   
-    {userInfo}
-     
-   
-    </div>
+      <TextField name="email" type="text" placeholder="Search by email" onChange={this.updateInput}margin="normal"
+        variant="outlined"/> 
+      {userInfo}  
+      </div>
+    </form>
       
     )
+    
     
 	}
 }
