@@ -11,31 +11,29 @@ import Typography from '@material-ui/core/Typography';
 
 
 function Home() {
-    
-
-
 
       return(
-        <Card className="card">
-        <CardContent>
-        {/* <CardContent> */}
+        <div>
         <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography>
-
-
-          <div className="top-flex">
-        
-            {/* <h1 className="top-title">Gift me</h1> */}
+        <div className="top-flex"> 
+            <Card>
+            <CardContent>
             <Typography className="main-wrapper" id="create-wrapper">
             <CreateWishlist />
             </Typography>
+            </CardContent>
+            </Card>
 
- <Typography>           
+            <Card>
+            <CardContent>
+            <Typography>           
             <Search />
             </Typography>
+            </CardContent>
+            </Card>
+        </div> 
         </div>
-        
-        </CardContent>
-        </Card>
+       
     )
     
 }
