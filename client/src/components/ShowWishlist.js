@@ -79,7 +79,8 @@ class ShowWishlist extends Component {
       <div key={event.id}>
         <h5>{event.name}{"      "}{event.date}</h5>
       <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
-        <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link> 
+        {/* <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link>  */}
+        <UpdateEvent eventId={event.id} wishlistId={this.state.wishlistId} setEvents={this.setEvents}/>
       </div>)
     })
     const items = this.state.items.map(item=>{
@@ -89,7 +90,8 @@ class ShowWishlist extends Component {
         <div>{item.name}{"      "}{"$"}{item.price}{"      "}
         <a target="_blank"  rel="noopener noreferrer" href={item.link}>Link</a>
         </div></h4><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
-        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>     
+        {/* <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>      */}
+        <UpdateItem itemId={item.id} wishlistId={this.state.wishlistId} setItems={this.setItems}/>
       </div>)
     })
 		return (
@@ -105,7 +107,6 @@ class ShowWishlist extends Component {
             </ListItem>
         </List>
         {events}
-        {/* <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Event</Button></Link> */}
         <AddEvent wishlistId={this.state.wishlistId} setEvents={this.setEvents} />
         {items}   
         <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems}/>

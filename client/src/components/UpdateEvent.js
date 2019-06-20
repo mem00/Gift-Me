@@ -17,7 +17,7 @@ class  UpdateEvent extends Component  {
   }
 
   async componentDidMount(){
-    const response = await axios.get(`/event/${this.props.location.state.eventId}`)
+    const response = await axios.get(`/event/${this.props.eventId}`)
     const event = response.data.event;
     this.setState({
       name: event.name,
