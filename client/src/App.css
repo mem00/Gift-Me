@@ -103,8 +103,8 @@ i.material.md-24{
 .last{
   display:flex;
   flex-direction:row;
-  border:1px solid green;
   justify-content:center;
+  width:230px;
   
 }
 .item-wrapper{
@@ -116,9 +116,12 @@ i.material.md-24{
 .event-icon-wrapper{
   padding-top:15px;
   padding-right:10px;
+  display:flex;
+  flex-direction:row;
 }
-.item-wrapper{
-  border:1px solid green;
+.icon-wrapper{
+  display:flex;
+  flex-direction: row;
 }
 
 
@@ -142,10 +145,7 @@ padding:20px;
   border:1px solid blue;
   height:200px;
 } */
-.wow{
-  /* border:1px solid red; */
-  font-size:20px;
-}
+
 .MuiTypography-root.MuiListItemText-primary{
   font-size:30px;
   font-weight:600;

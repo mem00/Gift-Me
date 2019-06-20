@@ -76,7 +76,8 @@ class ShowWishlist extends Component {
     const events = this.state.events.map(event=>{
       return (
       <div key={event.id} className="last">
-        <h5>{event.name}{"      "}{event.date}</h5>
+        <h5>{event.name}
+        <br/>{event.date}</h5>
         <div className="event-icon-wrapper">
         <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
         <UpdateEvent eventId={event.id} wishlistId={this.state.wishlistId} setEvents={this.setEvents}/>
