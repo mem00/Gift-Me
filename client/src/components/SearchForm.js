@@ -35,7 +35,7 @@ async getData(event){
     
     event.preventDefault()
     
-    const response = await axios.get(`http://localhost:4567/wishlist/email/${this.state.input}`)
+    const response = await axios.get(`/wishlist/email/${this.state.input}`)
     console.log(response)
     response.data.personWishlistsAndItems ? 
     this.setState({
