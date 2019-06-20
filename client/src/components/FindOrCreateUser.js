@@ -47,6 +47,7 @@ class FindOrCreateUser extends Component {
                     <Button className="button" type='submit' variant="text" color="primary">Login/Signup</Button>
                    </div>
                    <TextField
+                   required="required"
                     id="tf-outlined"
                     class="mdc-text-field__input"
                     variant="outlined"
@@ -56,6 +57,7 @@ class FindOrCreateUser extends Component {
                     value={this.state.userName}                 
                    />
                    <TextField
+                    required="required"
                     id="tf-outlined"
                     class="mdc-text-field__input"
                     variant="outlined"

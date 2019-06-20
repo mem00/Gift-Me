@@ -89,7 +89,7 @@ this.setState({//storing input to reuse it
       <div className="search-wrapper">
       <Button type="submit" color="primary" className="button" >Give a Gift</Button>
     
-      <TextField name="email" type="text" placeholder="Search by email" onChange={this.updateInput}margin="normal"
+      <TextField required="required" name="email" type="text" placeholder="Search by email" onChange={this.updateInput}margin="normal"
         variant="outlined"/> 
       {userInfo}  
       </div>

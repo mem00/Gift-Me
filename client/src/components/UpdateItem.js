@@ -99,6 +99,7 @@ render(){
         onSubmit={this.handleSubmit}
         >
             <TextField
+            required="required"
             id="tf-outlined"
             class="mdc-text-field__input"
             variant= "outlined"
@@ -108,6 +109,7 @@ render(){
             value={this.state.name}
             />
             <TextField
+            required="required"
             id="tf-outlined"
             class="mdc-text-field__input"
             variant= "outlined"
@@ -117,6 +119,7 @@ render(){
             value={this.state.price}
             />
             <TextField
+            required="required"
             id="tf-outlined"
             class="mdc-text-field__input"
             variant= "outlined"

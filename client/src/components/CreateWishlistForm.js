@@ -42,6 +42,7 @@ class CreateWishlistForm extends Component {
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
                     <h1><Button type='submit' variant="text" color="primary">Create Wishlist</Button></h1>
                     <TextField
+                    required="required"
                     id="tf-outlined"
                     class="mdc-text-field__input"
                     variant="outlined"

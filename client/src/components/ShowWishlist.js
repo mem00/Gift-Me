@@ -80,19 +80,22 @@ class ShowWishlist extends Component {
         <div className="event-icon-wrapper">
         <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon>
         <UpdateEvent eventId={event.id} wishlistId={this.state.wishlistId} setEvents={this.setEvents}/>
+        </div>
       </div>)
     })
     const items = this.state.items.map(item=>{
       return (
       <div key={item.id}>         
         <h4 className="item-wrapper">      
-        <div>{item.name}{"      "}{"    "}{"$"}{item.price}{"       "}
-        <a target="_blank"  rel="noopener noreferrer" href={item.link}>link</a>
+        <div>{item.name}{"      "}{"    "}{"$"}{item.price}{"       "}<a target="_blank"  rel="noopener noreferrer" href={item.link}>link</a>
         </div>
-        <div className="icon-wrapper"><MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>  
-        <UpdateItem itemId={item.id} wishlistId={this.state.wishlistId} setItems={this.setItems}/>
-      </h4></div>)
-    })
+        <div className="icon-wrapper">
+          <MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"></MaterialIcon>  
+          <span><UpdateItem itemId={item.id} wishlistId={this.state.wishlistId} setItems={this.setItems}/></span>
+        </div>
+      </h4></div>
+      )})
+    
 		return (
 			<div className="wishlist-wrapper">
             <div className="home-icon">

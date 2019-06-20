@@ -77,6 +77,7 @@ class AddEvent extends Component {
                 onSubmit={this.handleSubmit}
                 >
                 <TextField
+                required="required"
                 id="tf-outlined"
                 class="mdc-text-field__input"
                 variant= "outlined"
@@ -86,6 +87,7 @@ class AddEvent extends Component {
                 value={this.state.name}
                 />
                 <TextField
+                required="required"
                 id="tf-outlined"
                 class="mdc-text-field__input"
                 variant= "outlined"
