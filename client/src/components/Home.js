@@ -14,27 +14,25 @@ function Home() {
 
       return(
         <div>
-        <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography>
-        <div className="top-flex"> 
-            <Card>
-            <CardContent>
-            <Typography className="main-wrapper" id="create-wrapper">
-            <CreateWishlist />
-            </Typography>
-            </CardContent>
-            </Card>
-
-            <Card>
-            <CardContent>
-            <Typography>           
-            <Search />
-            </Typography>
-            </CardContent>
-            </Card>
-        </div> 
-        </div>
-       
-    )
-    
+          <Typography color="textSecondary" className="top-title" gutter bottom>Gift me</Typography>
+          <CardContent>
+            <div className="top-flex">
+              <Card>
+                <CardContent>
+                  <Typography className="main-wrapper" id="create-wrapper">
+                    <CreateWishlist />
+                  </Typography>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardContent>
+                  <Typography>           
+                    <Search />
+                  </Typography>
+                </CardContent>
+              </Card>
+            </div> 
+          </div>    
+    )  
 }
 export default Home

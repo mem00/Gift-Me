@@ -169,10 +169,11 @@ body{
 } */
 
 
-.hOne{
+.h-one{
   text-align:center;
   color:#336B87;
   font-size:40px;
+  padding-left:40px;
 }
 /* .matching-front{
     -webkit-animation: slide-in-fwd-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -220,6 +221,9 @@ width:300px;
   display:flex;
   flex-direction:column;
   border:1px solid blue;
+  width: 500px;
+  height:500px;
+  margin:0 auto;
   
 }
 

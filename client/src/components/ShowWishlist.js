@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import clsx from 'clsx';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 class ShowWishlist extends Component {
 	constructor() {
@@ -65,35 +64,23 @@ class ShowWishlist extends Component {
       <div key={event.id}>
         <TextField value={event.name}/><Button onClick= {()=>this.handleDelete("event",event.id)} name="event">X</Button>
         <TextField value={event.date}/>
-        <h5>{event.name}<MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} icon = "delete" name="event"></MaterialIcon></h5>
-        <Link to={{pathname: '/update-event', state: {eventId: event.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /></Link>
-        <h5>{event.date}</h5>
       </div>)
     })
     const items = this.state.items.map(item=>{
       return (
       <div key={item.id}>
-
         <TextField label="Item" value={item.name}/><Button onClick= {()=>this.handleDelete("item", item.id)} name="item">X</Button>
         <TextField label="Price" value={item.price}/>
-        {/* <TextField label="Link" value={item.link}/> */}
-        <Button href="#text-buttons" value={item.link}>
-        Link
-      </Button>
-        <h4>{item.name}<MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} icon= "delete" name="item"> </MaterialIcon>
-        <Link to={{pathname: '/update-item', state: {itemId: item.id, wishlistId : this.state.wishlistId}}}><MaterialIcon icon="edit" /> </Link>
-        </h4>
-        <h4>{item.price}</h4>
-        <h4>{item.link}</h4>
+        <TextField label="Link" value={item.link}/>
+        
       </div>)
     })
 		return (
 			<div className="wishlist-wrapper">
         {this.state.redirect ? <Redirect to={`/wishlist/${this.state.wishlistId}`}/>:null}
-
-        <Link to="/"><MaterialIcon icon="home" color ="purple" /> </Link>
+        <Link to="/"><Button  color="primary">Home</Button></Link>
         <TextField label= "Name" value={this.state.personName}/>      
-        <TextField label="Wish List" value={this.state.wishlistTitle}/>       
+        <TextField label="Wish List" value={this.state.wishlistTitle}/>
         {events}
         <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Event</Button></Link>
         {items}   
