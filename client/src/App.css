@@ -50,11 +50,11 @@ body{
   text-align:center;
   
   /* border:1px solid blue; */
-  margin-top:60px;
-  color:#336B87;
+  margin-top:100px;
+  color:purple;
   font-style:italic;
   height:50px;
-  margin:15px;
+  font-size:70px;
 
 }
 
