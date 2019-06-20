@@ -47,18 +47,16 @@ class AddEvent extends Component {
                 class="mdc-text-field__input"
                 variant= "outlined"
                 name="name"
-                type="text"
-                fullWidth = "true"
+                type="text"      
                 placeholder="Name of Event"               
                 value={this.state.name}
                 />
-                    <TextField
+                <TextField
                 id="tf-outlined"
                 class="mdc-text-field__input"
                 variant= "outlined"
                 name="date"
                 type="date"
-                fullWidth = "true"
                 placeholder="Date"
                 value={this.state.date}
                 />

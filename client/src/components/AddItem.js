@@ -55,7 +55,6 @@ class AddItem extends Component {
                 variant= "outlined"
                 name="name"
                 type="text"
-                fullWidth = "true"
                 placeholder="Name"
                 value={this.state.name}
                 />
@@ -65,7 +64,6 @@ class AddItem extends Component {
                 variant= "outlined"
                 name="price"
                 type="number"
-                fullWidth = "true"
                 placeholder="Price"
                 value={this.state.price}
                 />
@@ -75,7 +73,6 @@ class AddItem extends Component {
                 variant= "outlined"
                 name="link"
                 type="text"
-                fullWidth = "true"
                 placeholder="Link"
                 value={this.state.link}
                 />
