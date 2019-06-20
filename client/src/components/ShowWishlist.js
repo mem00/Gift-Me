@@ -1,5 +1,6 @@
 //have to add another route to get the event
 import React, { Component } from 'react';
+import AddItem from './AddItem'
 import axios from 'axios';
 import {Redirect, Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
@@ -21,6 +22,7 @@ class ShowWishlist extends Component {
       redirect: false
     };
     this.handleDelete = this.handleDelete.bind(this)
+    this.setItems = this.setItems.bind(this)
   }
 
 	async componentDidMount() {
@@ -58,6 +60,10 @@ class ShowWishlist extends Component {
        [paths] : updatedArray
      })
   }
+
+  setItems(items){  
+    this.setState({items})
+  }
  
 	render() {
     const events = this.state.events.map(event=>{
@@ -93,7 +99,8 @@ class ShowWishlist extends Component {
         {events}
         <Link to={{pathname: '/add-event', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Event</Button></Link>
         {items}   
-        <Link to={{pathname: '/add-item', state: {wishlistId : this.state.wishlistId}}}><Button color="primary">Add Item</Button></Link>
+        <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems}/>
+        {/* <Link to={{pathname: '/add-item', state: { modal: true, wishlistId : this.state.wishlistId}}}><Button color="primary">Add Item</Button></Link> */}
 			</div>
 		);
 	}
