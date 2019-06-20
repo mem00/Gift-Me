@@ -40,7 +40,7 @@ class CreateWishlistForm extends Component {
         return(
             <div>
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
-                    <h1><Button type='submit' variant="text" color="primary">Create Wishlist</Button></h1>
+                    <h1 className="search-name"><Button type='submit' variant="text" color="primary">Create Wishlist</Button></h1>
                     <TextField
                     required="required"
                     id="tf-outlined"

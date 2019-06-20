@@ -63,7 +63,9 @@ body{
 .MuiTypography-body1{
  
 }
-
+.search-name{
+  text-align:center;
+}
 
 .h-one{
   text-align:center;
