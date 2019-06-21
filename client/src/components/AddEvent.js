@@ -97,7 +97,7 @@ class AddEvent extends Component {
                                 type="date"
                                 placeholder="Date"
                                 value={this.state.date}/>
-                                <Button variant="text" type="submit" color="primary">Add Event</Button>
+                            <Button variant="text" type="submit" color="primary">Add Event</Button>
                         </form>
                     </div>
                 </Modal>
