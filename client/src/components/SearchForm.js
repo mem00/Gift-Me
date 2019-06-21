@@ -58,9 +58,6 @@ class SearchForm extends Component {
             <ListItem>
               <ListItemText primary={this.state.name}/>
             </ListItem>
-            <ListItem>
-              <ListItemText primary={this.state.email && this.state.email}/>
-            </ListItem>
             <div>
                 {this.state.wishlistArray.map((wishlist)=>{
                   return <Link key={wishlist.id} to={`/wishlist/${wishlist.id}`}> <ListItem><ListItemText primary={wishlist.title}/></ListItem></Link>
