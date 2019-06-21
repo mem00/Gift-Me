@@ -28,7 +28,6 @@ class FindOrCreateUser extends Component {
         catch(err) {
             console.log(err.message)
         } 
-
     }
 
     handleInputChange(evt){
@@ -44,28 +43,26 @@ class FindOrCreateUser extends Component {
             <div>
                 <form onChange={this.handleInputChange} onSubmit={this.handleSumbitForm}>
                     <div class="search-name">
-                    <Button className="button" type='submit' variant="text" color="primary">Login/Signup</Button>
-                   </div>
+                        <Button className="button" type='submit' variant="text" color="primary">Login/Signup</Button>
+                    </div>
                    <TextField
-                   required="required"
-                    id="tf-outlined"
-                    class="mdc-text-field__input"
-                    variant="outlined"
-                    type='text'
-                    name='userName' 
-                    placeholder= 'Your Name'
-                    value={this.state.userName}                 
-                   />
+                        required="required"
+                        id="tf-outlined"
+                        class="mdc-text-field__input"
+                        variant="outlined"
+                        type='text'
+                        name='userName' 
+                        placeholder= 'Your Name'
+                        value={this.state.userName}/>
                    <TextField
-                    required="required"
-                    id="tf-outlined"
-                    class="mdc-text-field__input"
-                    variant="outlined"
-                    type='text'
-                    name='userEmail' 
-                    placeholder = 'Your Email'
-                    value={this.state.userEmail}                 
-                   />
+                        required="required"
+                        id="tf-outlined"
+                        class="mdc-text-field__input"
+                        variant="outlined"
+                        type='text'
+                        name='userEmail' 
+                        placeholder = 'Your Email'
+                        value={this.state.userEmail}/>
                 </form>
             </div>
         )

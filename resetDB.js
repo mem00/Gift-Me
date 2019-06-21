@@ -1,6 +1,6 @@
 const { db } = require('./models');
 
-async function resetDb() {
+async function resetDB() {
   try {
     await db.sync({force: true});
     console.log('database sync\'d');
@@ -11,4 +11,4 @@ async function resetDb() {
   }
 }
 
-resetDb();
+resetDB();

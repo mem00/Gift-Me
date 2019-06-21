@@ -1,26 +1,24 @@
 const express = require('express')
+const itemRouter = express.Router()
+const {Item,Wishlist} = require('../models');
 
-const itemRouter= express.Router()
-const { Item, Wishlist } = require('../models');
 
-
-itemRouter.get('/:item_id', async (req,res)=>{
-    const item= await Item.findByPk(req.params.item_id)
+itemRouter.get('/:item_id', async (req, res) => {
+    const item = await Item.findByPk(req.params.item_id)
     res.json({
         item
     })
 })
 
-itemRouter.get('/wishlist/:wishlist_id', async(req,res)=>{
+itemRouter.get('/wishlist/:wishlist_id', async (req, res) => {
     const items = await Item.findAll({
         where: {
-            wishlistId : req.params.wishlist_id
+            wishlistId: req.params.wishlist_id
         }
     })
     res.json({
         items
     })
-
 })
 
 itemRouter.post('/create/:wishlist_id', async (req, res) => {
@@ -31,12 +29,12 @@ itemRouter.post('/create/:wishlist_id', async (req, res) => {
         item
     })
 })
-    
+
 itemRouter.put('/update/:item_id', async (req, res) => {
-    const result= await Item.update(  req.body, {       
-        where :{
-            id :req.params.item_id 
-        } 
+    const result = await Item.update(req.body, {
+        where: {
+            id: req.params.item_id
+        }
     })
     res.json({
         result
@@ -45,7 +43,7 @@ itemRouter.put('/update/:item_id', async (req, res) => {
 
 itemRouter.delete('/delete/:item_id', async (req, res) => {
     await Item.destroy({
-        where:{
+        where: {
             id: req.params.item_id
         }
     })
@@ -53,7 +51,7 @@ itemRouter.delete('/delete/:item_id', async (req, res) => {
         `Item with id ${req.params.item_id} has been deleted`
     )
 })
-        
+
 module.exports = {
     itemRouter
 }

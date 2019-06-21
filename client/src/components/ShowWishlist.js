@@ -1,13 +1,10 @@
-//have to add another route to get the event
 import React, { Component } from 'react';
 import AddItem from './AddItem'
 import AddEvent from './AddEvent'
 import UpdateItem from './UpdateItem'
 import UpdateEvent from './UpdateEvent'
-
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import MaterialIcon from 'material-icons-react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -75,53 +72,51 @@ class ShowWishlist extends Component {
 	render() {
     const events = this.state.events.map(event=>{
       return (
-      <div key={event.id} className="last">
-        <h5>{event.name}
-        <br/>{event.date}</h5>
-        <div className="event-icon-wrapper">
-        <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} color= "blue" icon = "delete" name="event"></MaterialIcon>
-        <UpdateEvent eventId={event.id} wishlistId={this.state.wishlistId} setEvents={this.setEvents}/>
-        </div>
-      </div>)
+        <div key={event.id} className="last">
+          <h5>{event.name}<br/>{event.date}</h5>
+          <div className="event-icon-wrapper">
+            <MaterialIcon onClick= {()=>this.handleDelete("event",event.id)} color= "blue" icon = "delete" name="event"></MaterialIcon>
+            <UpdateEvent eventId={event.id} wishlistId={this.state.wishlistId} setEvents={this.setEvents}/>
+          </div>
+        </div>)
     })
+
     const items = this.state.items.map(item=>{
       return (
-      <div key={item.id}>         
-        <h4 className="item-wrapper">      
-        <div>{item.name}{"      "}{"    "}{"$"}{item.price}{"       "}<a target="_blank"  rel="noopener noreferrer" href={item.link}>link</a>
+        <div key={item.id}>         
+          <h4 className="item-wrapper">      
+            <div>{item.name}{"      "}{"    "}{"$"}{item.price}{"       "}<a target="_blank" rel="noopener noreferrer" href={item.link}>link</a></div>
+            <div className="icon-wrapper">
+              <MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} color = "blue" icon= "delete" name="item"></MaterialIcon>  
+              <span><UpdateItem itemId={item.id} wishlistId={this.state.wishlistId} setItems={this.setItems}/></span>
+            </div>
+          </h4>
         </div>
-        <div className="icon-wrapper">
-          <MaterialIcon onClick= {()=>this.handleDelete("item", item.id)} color = "blue" icon= "delete" name="item"></MaterialIcon>  
-          <span><UpdateItem itemId={item.id} wishlistId={this.state.wishlistId} setItems={this.setItems}/></span>
-        </div>
-      </h4></div>
       )})
     
 		return (
-			<div className="wishlist-wrapper">
-            <div className="home-icon">
-        <Link to="/"><MaterialIcon  icon = "home" color="blue"/></Link>
+      <div className="wishlist-wrapper">
+        <div className="home-icon">
+          <Link to="/"><MaterialIcon  icon = "home" color="blue"/></Link>
         </div>
         <List>
-            <ListItem>
+          <ListItem>
             <ListItemText primary={this.state.personName} className="wow"/>
-            </ListItem>
-            <ListItem>
+          </ListItem>
+          <ListItem>
             <ListItemText primary={this.state.wishlistTitle}/>
-            </ListItem>
+          </ListItem>
         </List>
-        
         <div className="event-wrapper">
-        {events}        
-         <AddEvent wishlistId={this.state.wishlistId} setEvents={this.setEvents} />
-         </div>
-         <br/>
-         {items}   
-         <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems} className="item-squeeze"/>
-			</div>
-		);
+          {events}        
+          <AddEvent wishlistId={this.state.wishlistId} setEvents={this.setEvents} />
+        </div>
+        <br/>
+        {items}   
+        <AddItem  wishlistId={this.state.wishlistId} setItems={this.setItems} className="item-squeeze"/>
+      </div>
+    );
 	}
 }
-
 
 export default ShowWishlist;
