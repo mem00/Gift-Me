@@ -29,6 +29,6 @@
     "nodemon": "^1.19.1",
     "pg": "^7.11.0",
     "react-modal": "^3.8.1",
-    "sequelize": "^5.8.9"
+    "sequelize": "^5.15.1"
   }
 }
